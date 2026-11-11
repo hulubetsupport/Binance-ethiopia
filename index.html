@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <title>Binance Ethiopia - Pro Store & Mini App</title>
+  <title>Binance Ethiopia - Official WebApp</title>
+  <!-- Telegram WebApp SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -55,12 +56,12 @@
       background: var(--bg-main);
     }
 
-    /* የቴሌግራም X Close እና > ምልክት እንዳይጋርደው ወደ ታች የተዘጋጀ ራስጌ */
+    /* የቴሌግራም አዝራሮች እንዳይጋርዱት ወደ ታች የወረደ */
     .screen-content {
       flex: 1;
       overflow-y: auto;
       overflow-x: hidden;
-      padding: 48px 14px 84px; /* 48px ወደ ታች ወርዷል */
+      padding: 50px 14px 84px;
       scrollbar-width: none;
     }
     .screen-content::-webkit-scrollbar {
@@ -89,7 +90,6 @@
     .svg-icon svg {
       width: 100%;
       height: 100%;
-      fill: currentColor;
     }
 
     /* Bottom Navigation Bar */
@@ -137,7 +137,6 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 14px;
-      padding-top: 4px;
     }
     .user-pill {
       display: flex;
@@ -187,7 +186,7 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
     }
 
-    /* Balance Dashboard Card */
+    /* Total Balance Card */
     .balance-card {
       background: linear-gradient(135deg, #ffffff 0%, #fefce8 100%);
       border: 1px solid #fef08a;
@@ -234,7 +233,7 @@
       font-weight: 700;
     }
 
-    /* Virtual Visa Card Promo Box */
+    /* Virtual Visa Card Box */
     .virtual-card-box {
       background: linear-gradient(135deg, #1e1b4b 0%, #312e81 60%, #4338ca 100%);
       border-radius: 20px;
@@ -266,7 +265,7 @@
       align-items: flex-end;
     }
 
-    /* 6 Action Buttons */
+    /* 6 Action Grid */
     .action-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -290,14 +289,22 @@
       transform: scale(0.97);
     }
     .action-icon-circle {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       background: #fefce8;
       color: #b48500;
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+    .action-icon-circle.deposit-accent {
+      background: #ecfdf5;
+      color: #059669;
+    }
+    .action-icon-circle.withdraw-accent {
+      background: #eff6ff;
+      color: #2563eb;
     }
     .action-icon-circle.p2p-accent { background: var(--green-bg); color: var(--green); }
     .action-icon-circle.purple-accent { background: #f5f3ff; color: var(--purple); }
@@ -346,7 +353,7 @@
       font-size: 11px;
       font-weight: 800;
     }
-    .stage-text h5 { font-size: 13px; font-weight: 700; }
+    .stage-text h5 { font-size: 13px; font-weight: 700; color: var(--text-primary); }
     .stage-text span { font-size: 11px; color: var(--text-secondary); display: block; }
     .claim-btn {
       padding: 6px 14px;
@@ -413,7 +420,7 @@
     .pay-tele { background: #e0f2fe; color: #0369a1; border-color: #0284c7; }
     .pay-boa { background: #fef3c7; color: #b45309; border-color: #d97706; }
 
-    /* Digital Store Card */
+    /* Store Cards */
     .store-product-card {
       background: #ffffff;
       border: 1px solid var(--card-border);
@@ -423,9 +430,7 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
     }
 
-    /* ══════════════════════════════════════════════════════════
-       NEW: ETHIO VIRAL STYLE "ADD FUNDS" MODAL STYLING
-       ══════════════════════════════════════════════════════════ */
+    /* Ethio Viral Style Add Funds Stepper & Modal */
     .deposit-stepper {
       display: flex;
       align-items: center;
@@ -440,12 +445,8 @@
       gap: 6px;
       color: var(--text-secondary);
     }
-    .step-badge.active {
-      color: #9061f9;
-    }
-    .step-badge.completed {
-      color: var(--green);
-    }
+    .step-badge.active { color: #9061f9; }
+    .step-badge.completed { color: var(--green); }
     .step-circle {
       width: 20px;
       height: 20px;
@@ -456,25 +457,16 @@
       justify-content: center;
       font-size: 11px;
     }
-    .step-badge.active .step-circle {
-      background: #9061f9;
-      color: #fff;
-    }
-    .step-badge.completed .step-circle {
-      background: var(--green);
-      color: #fff;
-    }
+    .step-badge.active .step-circle { background: #9061f9; color: #fff; }
+    .step-badge.completed .step-circle { background: var(--green); color: #fff; }
     .step-line {
       flex: 1;
       height: 2px;
       background: var(--card-border);
       margin: 0 10px;
     }
-    .step-line.active {
-      background: var(--green);
-    }
+    .step-line.active { background: var(--green); }
 
-    /* Payment Method Cards Grid */
     .pay-methods-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -512,7 +504,6 @@
       justify-content: center;
     }
 
-    /* Payment Detail Box (Step 2) */
     .pay-detail-card {
       background: #faf5ff;
       border: 1px solid #e9d5ff;
@@ -526,9 +517,6 @@
       align-items: center;
       margin-bottom: 12px;
     }
-    .pay-detail-row:last-child {
-      margin-bottom: 0;
-    }
     .copy-pill-btn {
       background: #7c3aed;
       color: #fff;
@@ -539,6 +527,7 @@
       font-weight: 700;
       cursor: pointer;
     }
+
     .attach-upload-box {
       border: 1.5px dashed #cbd5e1;
       border-radius: 14px;
@@ -585,7 +574,7 @@
       font-weight: 700;
       cursor: pointer;
     }
-    .chip:hover, .chip.selected {
+    .chip.selected {
       background: #faf5ff;
       border-color: #9061f9;
       color: #7c3aed;
@@ -601,13 +590,7 @@
       border-radius: 14px;
       border: none;
       cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      transition: background 0.15s;
     }
-    .purple-btn:hover { background: #7e3af2; }
     .primary-btn {
       width: 100%;
       padding: 13px;
@@ -698,14 +681,14 @@
       <!-- ================= 1. HOME SCREEN ================= -->
       <section id="home-screen" class="screen active">
         
-        <!-- Header: Positioned with clearance below Telegram buttons -->
+        <!-- Header -->
         <div class="top-header">
           <div class="user-pill" onclick="switchTab('profile')">
             <div class="avatar" id="userAvatar">ET</div>
             <div class="user-info">
               <div class="sub">
                 <span id="userHandle">@telegram_user</span>
-                <span class="svg-icon" style="width:12px; height:12px; color:#b48500;"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
+                <span class="svg-icon" style="width:12px; height:12px; color:#b48500;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
               </div>
               <div class="name" id="userName">User Name</div>
             </div>
@@ -725,7 +708,7 @@
         <div class="balance-card">
           <div class="balance-title-row">
             <span id="lblTotalBalance">Total Balance (ጠቅላላ ቀሪ ሂሳብ)</span>
-            <span class="svg-icon" style="width:15px; height:15px; cursor:pointer;" onclick="toggleHideBalance()"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></span>
+            <span class="svg-icon" style="width:15px; height:15px; cursor:pointer;" onclick="toggleHideBalance()"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></span>
           </div>
           <div class="balance-amount" id="balancePrimary">$0.00 <span>USD</span></div>
           <div class="balance-secondary" id="balanceSecondary">≈ 0.00 ETB</div>
@@ -743,7 +726,7 @@
 
           <div class="card-number">
             <span id="maskedCardNumber">4129 •••• •••• 8842</span>
-            <span class="svg-icon" style="width:16px; height:16px; cursor:pointer;" onclick="toggleCardDetails()"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg></span>
+            <span class="svg-icon" style="width:16px; height:16px; cursor:pointer;" onclick="toggleCardDetails()"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/></svg></span>
           </div>
 
           <div class="card-bottom-row">
@@ -771,31 +754,95 @@
           </button>
         </div>
 
-        <!-- 6 Quick Action Buttons -->
+        <!-- 6 Main Quick Action Buttons (NEW PROFESSIONAL ICONS) -->
         <div class="action-grid">
+          <!-- 1. NEW DEPOSIT ICON (Vault / Incoming Transfer) -->
           <div class="action-btn" onclick="openEthioViralDeposit(100, 'CBE')">
-            <div class="action-icon-circle"><span class="svg-icon" style="width:18px; height:18px;"><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg></span></div>
-            <span>ገንዘብ አስገባ</span>
+            <div class="action-icon-circle deposit-accent">
+              <span class="svg-icon" style="width:20px; height:20px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+              </span>
+            </div>
+            <span id="actDeposit">ገንዘብ አስገባ</span>
           </div>
+
+          <!-- 2. NEW WITHDRAWAL ICON (Outgoing Cashout / Fast Transfer) -->
           <div class="action-btn" onclick="openSubpage('withdraw-screen')">
-            <div class="action-icon-circle"><span class="svg-icon" style="width:18px; height:18px;"><svg viewBox="0 0 24 24"><path d="M9 15h6v6H9v-6zm10-6h-4V3H9v6H5l7 7 7-7z" transform="rotate(180 12 12)"/></svg></span></div>
-            <span>ገንዘብ አውጣ</span>
+            <div class="action-icon-circle withdraw-accent">
+              <span class="svg-icon" style="width:20px; height:20px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="17 8 12 3 7 8" />
+                  <line x1="12" y1="3" x2="12" y2="15" />
+                </svg>
+              </span>
+            </div>
+            <span id="actWithdraw">ገንዘብ አውጣ</span>
           </div>
+
+          <!-- 3. STORE -->
           <div class="action-btn" onclick="switchTab('store')">
-            <div class="action-icon-circle purple-accent"><span class="svg-icon" style="width:18px; height:18px;"><svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg></span></div>
-            <span>ትልቅ ሱቅ</span>
+            <div class="action-icon-circle purple-accent">
+              <span class="svg-icon" style="width:19px; height:19px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                  <line x1="3" y1="6" x2="21" y2="6"/>
+                  <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+              </span>
+            </div>
+            <span id="actStore">ትልቅ ሱቅ</span>
           </div>
+
+          <!-- 4. P2P -->
           <div class="action-btn" onclick="switchTab('p2p')">
-            <div class="action-icon-circle p2p-accent"><span class="svg-icon" style="width:18px; height:18px;"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span></div>
-            <span>P2P ገበያ</span>
+            <div class="action-icon-circle p2p-accent">
+              <span class="svg-icon" style="width:19px; height:19px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </span>
+            </div>
+            <span id="actP2p">P2P ገበያ</span>
           </div>
+
+          <!-- 5. PRIZE POOL -->
           <div class="action-btn" onclick="openSubpage('prize-screen')">
-            <div class="action-icon-circle blue-accent"><span class="svg-icon" style="width:18px; height:18px;"><svg viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg></span></div>
-            <span>Prize Pool</span>
+            <div class="action-icon-circle blue-accent">
+              <span class="svg-icon" style="width:19px; height:19px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                  <path d="M4 22h16"/>
+                  <path d="M10 14.66V17c0 .55-.45 1-1 1H7v4h10v-4h-2c-.55 0-1-.45-1-1v-2.34"/>
+                  <path d="M6 4h12v7a6 6 0 0 1-12 0V4z"/>
+                </svg>
+              </span>
+            </div>
+            <span id="actPrize">Prize Pool</span>
           </div>
+
+          <!-- 6. INVITE -->
           <div class="action-btn" onclick="openSubpage('invite-screen')">
-            <div class="action-icon-circle"><span class="svg-icon" style="width:18px; height:18px;"><svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg></span></div>
-            <span>ጋብዝ (40%)</span>
+            <div class="action-icon-circle">
+              <span class="svg-icon" style="width:19px; height:19px;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="18" cy="5" r="3"/>
+                  <circle cx="6" cy="12" r="3"/>
+                  <circle cx="18" cy="19" r="3"/>
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                </svg>
+              </span>
+            </div>
+            <span id="actInvite">ጋብዝ (40%)</span>
           </div>
         </div>
 
@@ -803,7 +850,7 @@
         <div class="content-card">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
             <div>
-              <strong style="font-size:14px; color:#b48500;">Task Prize Stages (የደረጃ ሽልማቶች)</strong>
+              <strong style="font-size:14px; color:#b48500;" id="lblStagesHeading">Task Prize Stages (የደረጃ ሽልማቶች)</strong>
               <span style="font-size:11px; color:var(--text-secondary); display:block;">Unlock sequential rewards</span>
             </div>
             <span style="font-size:11px; background:#fefce8; color:#946c00; padding:3px 8px; border-radius:10px; font-weight:700;">4 Stages</span>
@@ -855,7 +902,7 @@
           </div>
         </div>
 
-        <!-- Live Market Overview -->
+        <!-- Market Overview -->
         <div style="display:flex; justify-content:space-between; align-items:center; margin:14px 0 10px;">
           <span style="font-size:14.5px; font-weight:700;">Market Overview (የገበያ ዋጋ)</span>
           <span style="font-size:12px; color:#b48500; cursor:pointer;" onclick="switchTab('markets')">See All →</span>
@@ -946,12 +993,11 @@
         </div>
 
         <div id="p2pOrdersContainer">
-          <!-- Buy/Sell Listing 1 -->
           <div class="p2p-card">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
               <div style="display:flex; align-items:center; gap:6px; font-weight:700;">
                 <span>Abebe_Crypto_ET</span>
-                <span class="svg-icon" style="width:13px; height:13px; color:#b48500;"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
+                <span class="svg-icon" style="width:13px; height:13px; color:#b48500;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
               </div>
               <div style="font-size:11px; color:var(--text-secondary);">1,420 orders | 99.8%</div>
             </div>
@@ -962,25 +1008,6 @@
             <div style="display:flex; gap:6px;">
               <span class="pay-pill pay-tele">Telebirr</span>
               <span class="pay-pill pay-cbe">CBE Bank</span>
-            </div>
-          </div>
-
-          <!-- Listing 2 -->
-          <div class="p2p-card">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-              <div style="display:flex; align-items:center; gap:6px; font-weight:700;">
-                <span>EthioFin_Express</span>
-                <span class="svg-icon" style="width:13px; height:13px; color:#b48500;"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
-              </div>
-              <div style="font-size:11px; color:var(--text-secondary);">890 orders | 100%</div>
-            </div>
-            <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:8px;">
-              <div class="p2p-price-val">120.75 <span style="font-size:12px; color:var(--text-secondary);">ETB / $1.00</span></div>
-              <button class="primary-btn" style="width:auto; padding:7px 16px; font-size:12px;" onclick="openP2PTrade('EthioFin_Express', 120.75, 'BUY')">Buy USDT</button>
-            </div>
-            <div style="display:flex; gap:6px;">
-              <span class="pay-pill pay-cbe">CBE Bank</span>
-              <span class="pay-pill pay-boa">Abyssinia</span>
             </div>
           </div>
         </div>
@@ -1095,12 +1122,11 @@
     </div>
 
     <!-- ══════════════════════════════════════════════════════════
-         NEW: EXACT ETHIO VIRAL STYLE "ADD FUNDS" MODAL (STEP 1 & 2)
+         ETHIO VIRAL STYLE "ADD FUNDS" MODAL (STEP 1 & 2)
          ══════════════════════════════════════════════════════════ -->
     <div class="modal-overlay" id="ethioViralModal" style="display:none;">
       <div class="modal-box">
         
-        <!-- Header with Back Arrow and Close Button -->
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
           <div style="display:flex; align-items:center; gap:10px;">
             <button class="back-btn" id="modalBackBtn" onclick="onModalBackClick()" style="display:none;">‹</button>
@@ -1192,8 +1218,6 @@
 
         <!-- ──── STEP 2 VIEW ──── -->
         <div id="depositStep2View" style="display:none;">
-          
-          <!-- Payment Destination Card -->
           <div class="pay-detail-card">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
               <div style="display:flex; align-items:center; gap:8px;">
@@ -1222,8 +1246,6 @@
               </div>
               <button class="copy-pill-btn" onclick="copyStep2Account()">Copy</button>
             </div>
-
-            <div style="font-size:11px; color:#7c3aed; font-weight:700; margin-top:8px; cursor:pointer;">How to send ▾</div>
           </div>
 
           <label class="form-label" style="margin-top:12px;">CONFIRM YOU PAID</label>
@@ -1232,30 +1254,19 @@
               CBE transaction ID or receipt link
             </span>
             <input type="text" class="form-input" id="step2TxInput" placeholder="e.g. FT26062K7WMY" />
-            <div style="font-size:10.5px; color:var(--text-secondary); margin-top:4px;">
-              Paste the transaction ID or receipt reference code.
-            </div>
           </div>
 
-          <!-- Attach Screenshot Upload Simulation -->
           <div class="attach-upload-box" onclick="simulateAttachScreenshot()">
             <div style="display:flex; align-items:center; gap:8px;">
-              <span class="svg-icon" style="width:16px; height:16px; color:#7c3aed;"><svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg></span>
+              <span class="svg-icon" style="width:16px; height:16px; color:#7c3aed;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg></span>
               <strong style="font-size:12px; color:var(--text-primary);" id="attachStatusText">or attach a screenshot</strong>
             </div>
             <span style="font-size:10px; color:var(--text-secondary);">PNG · JPG · PDF</span>
           </div>
 
-          <div style="font-size:11.5px; color:#7c3aed; font-weight:700; margin-bottom:14px; cursor:pointer;">
-            ⓘ Where do I find this? ▾
-          </div>
-
           <button class="purple-btn" onclick="submitEthioViralPayment()">
             Verify & add funds
           </button>
-          <div style="font-size:11px; color:var(--text-secondary); text-align:center; margin-top:8px;">
-            Enter the transaction ID or attach a screenshot
-          </div>
         </div>
 
       </div>
@@ -1266,8 +1277,8 @@
       <div class="modal-box">
         <h3 style="font-size:16px; margin-bottom:8px; font-weight:800;">Post P2P Ad (ማስታወቂያ ፍጠር)</h3>
         <select class="form-input" id="adTradeType">
-          <option value="BUY">I Want to BUY USDT (መግዛት እፈልጋለሁ)</option>
-          <option value="SELL">I Want to SELL USDT (መሸጥ እፈልጋለሁ)</option>
+          <option value="BUY">I Want to BUY USDT</option>
+          <option value="SELL">I Want to SELL USDT</option>
         </select>
         <input type="number" class="form-input" id="adPriceRate" placeholder="Price Rate (e.g. 120.50 ETB)" />
         <input type="number" class="form-input" id="adAmount" placeholder="Amount in USDT (e.g. 50)" />
@@ -1306,33 +1317,38 @@
     <!-- Bottom Navigation Bar -->
     <nav class="nav-bar">
       <div class="nav-item active" onclick="switchTab('home')">
-        <span class="svg-icon nav-svg"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>
+        <span class="svg-icon nav-svg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>
         <span>Home</span>
       </div>
       <div class="nav-item" onclick="switchTab('store')">
-        <span class="svg-icon nav-svg"><svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg></span>
+        <span class="svg-icon nav-svg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg></span>
         <span>Store</span>
       </div>
       <div class="nav-item" onclick="switchTab('p2p')">
-        <span class="svg-icon nav-svg"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span>
+        <span class="svg-icon nav-svg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></span>
         <span>P2P</span>
       </div>
       <div class="nav-item" onclick="switchTab('exchange')">
-        <span class="svg-icon nav-svg"><svg viewBox="0 0 24 24"><path d="M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z"/></svg></span>
+        <span class="svg-icon nav-svg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z"/></svg></span>
         <span>Convert</span>
       </div>
       <div class="nav-item" onclick="switchTab('futures')">
-        <span class="svg-icon nav-svg"><svg viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg></span>
+        <span class="svg-icon nav-svg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg></span>
         <span>Futures</span>
       </div>
       <div class="nav-item" onclick="switchTab('wallets')">
-        <span class="svg-icon nav-svg"><svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8z"/></svg></span>
+        <span class="svg-icon nav-svg"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8z"/></svg></span>
         <span>Wallets</span>
       </div>
     </nav>
   </div>
 
   <script>
+    // ══════════════════════════════════════════════════════════
+    // LIVE SERVER CONFIGURATION
+    // ══════════════════════════════════════════════════════════
+    const API_BASE = 'https://swap-broadcast-server.app.aletcloud.com';
+
     const tg = window.Telegram?.WebApp;
     if (tg) { tg.ready(); tg.expand(); }
 
@@ -1351,12 +1367,10 @@
     let totalUSD = 0.00;
     let tickets = 3;
 
-    // Selected payment method & amount state for Ethio Viral Deposit Modal
     let selectedPayMethod = 'CBE';
     let chosenDepositAmount = 100;
     let currentP2PRate = 120.50;
 
-    // Real Accounts Configuration
     const REAL_ACCOUNTS = {
       CBE: {
         title: 'Commercial Bank of Ethiopia (CBE)',
@@ -1418,9 +1432,10 @@
       }
     }
 
+    // Server-Sync User Initialization
     async function init() {
       try {
-        const res = await fetch('/api/auth', {
+        const res = await fetch(`${API_BASE}/api/auth`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -1441,14 +1456,13 @@
           if (d.user.stage3_claimed) markBtnDone('s3-btn', 's4-btn');
           if (d.user.stage4_claimed) markBtnDone('s4-btn', null);
         }
-      } catch {
+      } catch (err) {
+        console.warn('API sync warning:', err);
         updateBalanceDisplays();
       }
     }
 
-    // ══════════════════════════════════════════════════════════
-    // ETHIO VIRAL STYLE DEPOSIT MODAL LOGIC (STEP 1 & STEP 2)
-    // ══════════════════════════════════════════════════════════
+    // Modal Navigation & Controls
     function openEthioViralDeposit(amount, method) {
       if (amount) {
         chosenDepositAmount = amount;
@@ -1501,7 +1515,6 @@
 
       const accInfo = REAL_ACCOUNTS[selectedPayMethod] || REAL_ACCOUNTS['CBE'];
 
-      // Update Step 2 UI with chosen bank details
       document.getElementById('step2BankTitle').innerText = accInfo.title;
       document.getElementById('step2BankSubtitle').innerText = accInfo.subtitle;
       document.getElementById('step2BankLogo').innerText = selectedPayMethod.substring(0, 3).toUpperCase();
@@ -1518,12 +1531,10 @@
       document.getElementById('step2TxLabel').innerText = accInfo.txPrompt;
       document.getElementById('step2TxInput').placeholder = accInfo.placeholder;
 
-      // Switch view to Step 2
       document.getElementById('depositStep1View').style.display = 'none';
       document.getElementById('depositStep2View').style.display = 'block';
       document.getElementById('modalBackBtn').style.display = 'flex';
 
-      // Update Stepper
       document.getElementById('step1Indicator').className = 'step-badge completed';
       document.getElementById('step1Circle').innerText = '✔';
       document.getElementById('stepperLine').className = 'step-line active';
@@ -1547,16 +1558,17 @@
     }
 
     function simulateAttachScreenshot() {
-      document.getElementById('attachStatusText').innerText = 'Screenshot attached: receipt.jpg (842 KB)';
-      showToast('Screenshot attached successfully');
+      document.getElementById('attachStatusText').innerText = 'Screenshot attached: receipt.jpg';
+      showToast('Receipt attached');
     }
 
+    // Live Server Sync for Deposit
     async function submitEthioViralPayment() {
       const tx = document.getElementById('step2TxInput').value.trim();
       if (!tx) return alert('እባክዎ የግብይት ቁጥሩን (Transaction ID) ያስገቡ!');
 
       try {
-        const res = await fetch('/api/deposit/submit', {
+        const res = await fetch(`${API_BASE}/api/deposit/submit`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -1574,14 +1586,12 @@
           totalUSD += (chosenDepositAmount / FX_RATE);
           updateBalanceDisplays();
         }
-      } catch {
+      } catch (e) {
         alert('ክፍያውን ማረጋገጥ አልተቻለም፤ እባክዎ ደግመው ይሞክሩ።');
       }
     }
 
-    // ══════════════════════════════════════════════════════════
-    // P2P INTERACTION & AD POSTING
-    // ══════════════════════════════════════════════════════════
+    // P2P Controls
     function openP2PTrade(merchant, rate, type) {
       currentP2PRate = rate;
       document.getElementById('p2pTradeHeader').innerText = `${type === 'BUY' ? 'Buy' : 'Sell'} USDT with ${merchant}`;
@@ -1612,7 +1622,6 @@
       const amount = document.getElementById('adAmount').value || '50';
       closeModal('postAdModal');
 
-      // Add to UI listing
       const newAdHTML = `
         <div class="p2p-card" style="border: 1.5px solid #a855f7;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
@@ -1633,7 +1642,7 @@
         </div>
       `;
       document.getElementById('p2pOrdersContainer').insertAdjacentHTML('afterbegin', newAdHTML);
-      showToast('🎉 Your P2P Ad has been published to the order book!');
+      showToast('🎉 Your P2P Ad has been published!');
     }
 
     function toggleP2PType(type) {
@@ -1641,46 +1650,10 @@
       document.getElementById('p2pSellTab').classList.toggle('active', type === 'SELL');
     }
 
-    // ══════════════════════════════════════════════════════════
-    // GENERAL UTILITY & TASK CLAIMS
-    // ══════════════════════════════════════════════════════════
-    function toggleCurrency() {
-      baseCurrency = baseCurrency === 'USD' ? 'ETB' : 'USD';
-      document.getElementById('currBadge').innerText = baseCurrency === 'USD' ? '$ USD' : 'ETB';
-      updateBalanceDisplays();
-    }
-
-    function toggleLanguage() {
-      showToast('Language preference updated');
-    }
-
-    function toggleHideBalance() {
-      const el = document.getElementById('balancePrimary');
-      el.innerHTML = el.innerText.includes('*') ? `$${totalUSD.toFixed(2)} <span>USD</span>` : '**** <span>USD</span>';
-    }
-
-    function toggleCardDetails() {
-      showToast('Card Details: 4129 8831 0924 8842 | CVV: 891 | Exp: 12/29');
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).style.display = 'none';
-    }
-
-    function copyReferralLink() {
-      navigator.clipboard.writeText(document.getElementById('refLinkInput').value);
-      showToast('Referral link copied!');
-    }
-
-    function generateTicket() {
-      tickets += 1;
-      document.getElementById('userTicketCount').innerText = `${tickets} Tickets`;
-      showToast(`🎟️ New ticket generated! Total: ${tickets}`);
-    }
-
+    // Server-Sync Task Claims
     async function claimWelcomeBonus() {
       try {
-        const res = await fetch('/api/claim-welcome', {
+        const res = await fetch(`${API_BASE}/api/claim-welcome`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ telegram_id: tgUser.id })
@@ -1695,7 +1668,7 @@
 
     async function claimStage(n) {
       try {
-        const res = await fetch('/api/claim-stage', {
+        const res = await fetch(`${API_BASE}/api/claim-stage`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ telegram_id: tgUser.id, stage: n })
@@ -1722,7 +1695,7 @@
       if (!acc) return alert('Please enter destination account or wallet address!');
 
       try {
-        const res = await fetch('/api/withdraw', {
+        const res = await fetch(`${API_BASE}/api/withdraw`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -1744,6 +1717,41 @@
       } catch {
         alert('Withdrawal request error.');
       }
+    }
+
+    // General Helpers
+    function toggleCurrency() {
+      baseCurrency = baseCurrency === 'USD' ? 'ETB' : 'USD';
+      document.getElementById('currBadge').innerText = baseCurrency === 'USD' ? '$ USD' : 'ETB';
+      updateBalanceDisplays();
+    }
+
+    function toggleLanguage() {
+      showToast('Language updated');
+    }
+
+    function toggleHideBalance() {
+      const el = document.getElementById('balancePrimary');
+      el.innerHTML = el.innerText.includes('*') ? `$${totalUSD.toFixed(2)} <span>USD</span>` : '**** <span>USD</span>';
+    }
+
+    function toggleCardDetails() {
+      showToast('Card Details: 4129 8831 0924 8842 | CVV: 891 | Exp: 12/29');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    function copyReferralLink() {
+      navigator.clipboard.writeText(document.getElementById('refLinkInput').value);
+      showToast('Referral link copied!');
+    }
+
+    function generateTicket() {
+      tickets += 1;
+      document.getElementById('userTicketCount').innerText = `${tickets} Tickets`;
+      showToast(`🎟️ New ticket generated! Total: ${tickets}`);
     }
 
     function switchTab(name) {
