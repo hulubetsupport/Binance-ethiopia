@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <title>Binance Ethiopia - Official WebApp</title>
+  <title>Binance Ethiopia - Official Dollar Asset Vault</title>
   <!-- Telegram WebApp SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-main: #f8fafc;
@@ -56,12 +56,12 @@
       background: var(--bg-main);
     }
 
-    /* የቴሌግራም አዝራሮች እንዳይጋርዱት ወደ ታች የወረደ */
+    /* የቴሌግራም አዝራሮች እንዳይሸፍኑት የተስተካከለ ራስጌ */
     .screen-content {
       flex: 1;
       overflow-y: auto;
       overflow-x: hidden;
-      padding: 50px 14px 84px;
+      padding: 52px 14px 86px;
       scrollbar-width: none;
     }
     .screen-content::-webkit-scrollbar {
@@ -186,7 +186,7 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
     }
 
-    /* Total Balance Card */
+    /* Dollar Vault Card */
     .balance-card {
       background: linear-gradient(135deg, #ffffff 0%, #fefce8 100%);
       border: 1px solid #fef08a;
@@ -204,7 +204,7 @@
       top: -15px;
       font-size: 95px;
       font-weight: 900;
-      color: rgba(240, 185, 11, 0.07);
+      color: rgba(240, 185, 11, 0.06);
       pointer-events: none;
     }
     .balance-title-row {
@@ -216,7 +216,7 @@
       margin-bottom: 6px;
     }
     .balance-amount {
-      font-size: 28px;
+      font-size: 29px;
       font-weight: 900;
       letter-spacing: -0.5px;
       color: var(--text-primary);
@@ -233,7 +233,7 @@
       font-weight: 700;
     }
 
-    /* Virtual Visa Card Box */
+    /* Virtual Card Showcase */
     .virtual-card-box {
       background: linear-gradient(135deg, #1e1b4b 0%, #312e81 60%, #4338ca 100%);
       border-radius: 20px;
@@ -265,7 +265,7 @@
       align-items: flex-end;
     }
 
-    /* 6 Action Grid */
+    /* Action Buttons */
     .action-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -298,14 +298,8 @@
       align-items: center;
       justify-content: center;
     }
-    .action-icon-circle.deposit-accent {
-      background: #ecfdf5;
-      color: #059669;
-    }
-    .action-icon-circle.withdraw-accent {
-      background: #eff6ff;
-      color: #2563eb;
-    }
+    .action-icon-circle.deposit-accent { background: #ecfdf5; color: #059669; }
+    .action-icon-circle.withdraw-accent { background: #eff6ff; color: #2563eb; }
     .action-icon-circle.p2p-accent { background: var(--green-bg); color: var(--green); }
     .action-icon-circle.purple-accent { background: #f5f3ff; color: var(--purple); }
     .action-icon-circle.blue-accent { background: #f0f9ff; color: var(--blue); }
@@ -372,7 +366,7 @@
       cursor: not-allowed;
     }
 
-    /* P2P Section Styling */
+    /* P2P */
     .p2p-header-tabs {
       display: flex;
       gap: 14px;
@@ -420,7 +414,7 @@
     .pay-tele { background: #e0f2fe; color: #0369a1; border-color: #0284c7; }
     .pay-boa { background: #fef3c7; color: #b45309; border-color: #d97706; }
 
-    /* Store Cards */
+    /* Store Product Card */
     .store-product-card {
       background: #ffffff;
       border: 1px solid var(--card-border);
@@ -477,11 +471,11 @@
       background: #ffffff;
       border: 1.5px solid var(--card-border);
       border-radius: 14px;
-      padding: 14px 8px;
+      padding: 12px 6px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       cursor: pointer;
       transition: all 0.15s;
     }
@@ -491,13 +485,13 @@
       box-shadow: 0 4px 12px rgba(144, 97, 249, 0.12);
     }
     .pay-method-card span {
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 700;
       color: var(--text-primary);
     }
     .pay-icon-box {
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -681,7 +675,7 @@
       <!-- ================= 1. HOME SCREEN ================= -->
       <section id="home-screen" class="screen active">
         
-        <!-- Header -->
+        <!-- Header with Full Clearance -->
         <div class="top-header">
           <div class="user-pill" onclick="switchTab('profile')">
             <div class="avatar" id="userAvatar">ET</div>
@@ -704,24 +698,26 @@
           </div>
         </div>
 
-        <!-- Total Balance Card -->
+        <!-- Real Dollar Vault Balance Card -->
         <div class="balance-card">
           <div class="balance-title-row">
-            <span id="lblTotalBalance">Total Balance (ጠቅላላ ቀሪ ሂሳብ)</span>
+            <span id="lblTotalBalance">Dollar Vault Asset (የዶላር አሴት ማከማቻ)</span>
             <span class="svg-icon" style="width:15px; height:15px; cursor:pointer;" onclick="toggleHideBalance()"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></span>
           </div>
           <div class="balance-amount" id="balancePrimary">$0.00 <span>USD</span></div>
-          <div class="balance-secondary" id="balanceSecondary">≈ 0.00 ETB</div>
+          <div class="balance-secondary" id="balanceSecondary">≈ 0.00 ETB (Rate: 1 USD = 194 ETB)</div>
         </div>
 
-        <!-- Virtual Visa Card Promo -->
+        <!-- Virtual Visa & MasterCard Showcase Box -->
         <div class="virtual-card-box">
           <div class="card-top-row">
             <div>
-              <span style="font-size:11px; font-weight:800; color:var(--binance-yellow); letter-spacing:1px;">BINANCE ET VISA</span>
-              <div style="font-size:10px; color:#c7d2fe;">Premium Dollar Card</div>
+              <span style="font-size:11px; font-weight:800; color:var(--binance-yellow); letter-spacing:1px;" id="cardBrandTitle">BINANCE ET VIRTUAL</span>
+              <div style="font-size:10px; color:#c7d2fe;">Global Online Payment Card</div>
             </div>
-            <span style="font-size:18px; font-weight:900; font-style:italic;">VISA</span>
+            <div style="display:flex; gap:6px;">
+              <span style="font-size:14px; font-weight:900; font-style:italic;" id="cardTypeTag">VISA / MASTERCARD</span>
+            </div>
           </div>
 
           <div class="card-number">
@@ -744,19 +740,19 @@
           </div>
         </div>
 
-        <!-- Card Action Buttons -->
+        <!-- Card Options Button -->
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:14px;">
-          <button class="primary-btn" style="background:#4338ca; color:#fff; font-size:12px; padding:10px;" onclick="openEthioViralDeposit(200, 'CBE')">
-            💳 ቪዛ ካርድ ይግዙ ($1.50)
+          <button class="primary-btn" style="background:#4338ca; color:#fff; font-size:12px; padding:10px;" onclick="openCardSelectionModal()">
+            💳 ካርድ ይግዙ ($1.50)
           </button>
           <button class="primary-btn" style="background:#ffffff; color:#0f172a; border:1px solid var(--card-border); font-size:12px; padding:10px;" onclick="openEthioViralDeposit(500, 'Telebirr')">
             ➕ በቴሌብር ዶላር ሙላ
           </button>
         </div>
 
-        <!-- 6 Main Quick Action Buttons (NEW PROFESSIONAL ICONS) -->
+        <!-- 6 Main Quick Action Buttons -->
         <div class="action-grid">
-          <!-- 1. NEW DEPOSIT ICON (Vault / Incoming Transfer) -->
+          <!-- 1. ADD FUNDS (formerly Deposit) -->
           <div class="action-btn" onclick="openEthioViralDeposit(100, 'CBE')">
             <div class="action-icon-circle deposit-accent">
               <span class="svg-icon" style="width:20px; height:20px;">
@@ -767,10 +763,10 @@
                 </svg>
               </span>
             </div>
-            <span id="actDeposit">ገንዘብ አስገባ</span>
+            <span id="actDeposit">Add Funds (ገንዘብ አስገባ)</span>
           </div>
 
-          <!-- 2. NEW WITHDRAWAL ICON (Outgoing Cashout / Fast Transfer) -->
+          <!-- 2. WITHDRAW -->
           <div class="action-btn" onclick="openSubpage('withdraw-screen')">
             <div class="action-icon-circle withdraw-accent">
               <span class="svg-icon" style="width:20px; height:20px;">
@@ -846,12 +842,12 @@
           </div>
         </div>
 
-        <!-- 4 Prize Stages -->
+        <!-- 4 Verified Prize Stages -->
         <div class="content-card">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
             <div>
               <strong style="font-size:14px; color:#b48500;" id="lblStagesHeading">Task Prize Stages (የደረጃ ሽልማቶች)</strong>
-              <span style="font-size:11px; color:var(--text-secondary); display:block;">Unlock sequential rewards</span>
+              <span style="font-size:11px; color:var(--text-secondary); display:block;">Strict Server-Verified Rewards</span>
             </div>
             <span style="font-size:11px; background:#fefce8; color:#946c00; padding:3px 8px; border-radius:10px; font-weight:700;">4 Stages</span>
           </div>
@@ -861,7 +857,7 @@
               <div class="stage-num" id="s1-icon">1</div>
               <div class="stage-text">
                 <h5>Identity KYC Verification</h5>
-                <span>Reward: +$1.00 USD (~120 ETB)</span>
+                <span>Reward: +$1.00 USD (~194 ETB)</span>
               </div>
             </div>
             <button class="claim-btn" id="s1-btn" onclick="claimStage(1)">Claim $1</button>
@@ -871,11 +867,11 @@
             <div style="display:flex; align-items:center; gap:10px;">
               <div class="stage-num" id="s2-icon">2</div>
               <div class="stage-text">
-                <h5>First Deposit or P2P Trade</h5>
-                <span>Reward: +$2.50 USD (~300 ETB)</span>
+                <h5>First Add Funds (ዲፖዚት)</h5>
+                <span>Reward: +$2.50 USD (~485 ETB)</span>
               </div>
             </div>
-            <button class="claim-btn" id="s2-btn" disabled onclick="claimStage(2)">Locked</button>
+            <button class="claim-btn" id="s2-btn" onclick="claimStage(2)">Claim $2.50</button>
           </div>
 
           <div class="stage-item">
@@ -883,10 +879,10 @@
               <div class="stage-num" id="s3-icon">3</div>
               <div class="stage-text">
                 <h5>Invite 5 Active Friends</h5>
-                <span>Reward: +$5.00 USD (~600 ETB)</span>
+                <span>Reward: +$5.00 USD (~970 ETB)</span>
               </div>
             </div>
-            <button class="claim-btn" id="s3-btn" disabled onclick="claimStage(3)">Locked</button>
+            <button class="claim-btn" id="s3-btn" onclick="claimStage(3)">Claim $5</button>
           </div>
 
           <div class="stage-item highlight-vip">
@@ -895,16 +891,16 @@
               <div class="stage-text">
                 <h5 style="color:#7e22ce;">VIP Champion Milestone</h5>
                 <span>20 Invites OR $16 Deposit</span>
-                <strong style="color:var(--green); font-size:12px;">Reward: +$40.00 USD (~4,800 ETB)</strong>
+                <strong style="color:var(--green); font-size:12px;">Reward: +$40.00 USD (~7,760 ETB)</strong>
               </div>
             </div>
-            <button class="claim-btn" style="background:#7e22ce; color:#fff;" id="s4-btn" onclick="openEthioViralDeposit(2000, 'CBE')">Claim $40</button>
+            <button class="claim-btn" style="background:#7e22ce; color:#fff;" id="s4-btn" onclick="claimStage(4)">Claim $40</button>
           </div>
         </div>
 
-        <!-- Market Overview -->
+        <!-- Live Crypto & Market Overview -->
         <div style="display:flex; justify-content:space-between; align-items:center; margin:14px 0 10px;">
-          <span style="font-size:14.5px; font-weight:700;">Market Overview (የገበያ ዋጋ)</span>
+          <span style="font-size:14.5px; font-weight:700;">Live Markets (የገበያ ዋጋ)</span>
           <span style="font-size:12px; color:#b48500; cursor:pointer;" onclick="switchTab('markets')">See All →</span>
         </div>
 
@@ -913,7 +909,7 @@
             <div class="coin-icon-svg" style="background:#fef3c7; color:#b45309;">₿</div>
             <div>
               <h4 style="font-size:13px;">BTC / USDT</h4>
-              <span style="font-size:11px; color:var(--text-secondary);">≈ 7,494,000 ETB</span>
+              <span style="font-size:11px; color:var(--text-secondary);" id="btcEtbPrice">≈ 12,115,338 ETB</span>
             </div>
           </div>
           <div style="text-align:right;">
@@ -925,9 +921,7 @@
 
       <!-- ================= 2. MARKETS SCREEN ================= -->
       <section id="markets-screen" class="screen">
-        <div class="subpage-header">
-          <span>Crypto Markets (የክሪፕቶ ገበያ)</span>
-        </div>
+        <div class="subpage-header"><span>Crypto Markets (የክሪፕቶ ገበያ)</span></div>
         <div class="tab-toggle">
           <button class="active">All</button><button>Spot</button><button>Futures</button><button>Gainers</button>
         </div>
@@ -939,51 +933,68 @@
           <div class="crypto-left"><div class="coin-icon-svg" style="background:#eff6ff; color:#1d4ed8;">Ξ</div><div><h4>ETH / USDT</h4><span>Ethereum</span></div></div>
           <div style="text-align:right;"><div style="font-size:14px; font-weight:700;">$3,210.75</div><span class="change-badge pos">+1.72%</span></div>
         </div>
+        <div class="crypto-row" onclick="switchTab('futures')">
+          <div class="crypto-left"><div class="coin-icon-svg" style="background:#fefce8; color:#a16207;">B</div><div><h4>BNB / USDT</h4><span>Binance Coin</span></div></div>
+          <div style="text-align:right;"><div style="font-size:14px; font-weight:700;">$725.30</div><span class="change-badge pos">+1.15%</span></div>
+        </div>
       </section>
 
-      <!-- ================= 3. STORE SCREEN ================= -->
+      <!-- ================= 3. STORE SCREEN (VISA & MASTERCARD FULL BENEFITS) ================= -->
       <section id="store-screen" class="screen">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-          <div>
-            <h3 style="font-size:18px; font-weight:900;">🛍️ Digital Store (እውነተኛ ሱቅ)</h3>
-            <span style="font-size:11.5px; color:var(--text-secondary);">Telebirr & CBE verified delivery</span>
-          </div>
+        <div style="margin-bottom:14px;">
+          <h3 style="font-size:18px; font-weight:900;">🛍️ Digital Card & Product Store</h3>
+          <span style="font-size:11.5px; color:var(--text-secondary);">Direct delivery for Ethiopian residents via Telebirr & CBE</span>
         </div>
 
-        <div class="store-product-card" style="border-left: 4px solid #7c3aed;">
+        <!-- Visa Card Product -->
+        <div class="store-product-card" style="border-left: 4px solid #4338ca;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-            <span style="font-size:11px; background:#f5f3ff; color:#6d28d9; padding:2px 8px; border-radius:6px; font-weight:800;">TOP CARD</span>
+            <span style="font-size:11px; background:#e0e7ff; color:#3730a3; padding:2px 8px; border-radius:6px; font-weight:800;">VISA DEBIT</span>
             <strong style="color:#b48500; font-size:15px;">$1.50 (200 ETB)</strong>
           </div>
           <h4 style="font-size:15px; font-weight:800; margin-bottom:4px;">💳 International Virtual Visa Card</h4>
-          <p style="font-size:12px; color:var(--text-secondary); margin-bottom:12px;">Prepaid card for Telegram Premium, TikTok Ads, Steam, and Netflix.</p>
-          <button class="primary-btn" style="background:#4338ca; color:#fff;" onclick="openEthioViralDeposit(200, 'CBE')">
-            አሁኑኑ ይግዙ (Buy Card - 200 ETB)
+          <p style="font-size:12px; color:var(--text-secondary); margin-bottom:12px;">Prepaid card for Telegram Premium, TikTok Ads, Steam, and Netflix. Top up in Birr anytime!</p>
+          <button class="primary-btn" style="background:#4338ca; color:#fff;" onclick="openEthioViralDeposit(200, 'CBE', 'VISA')">
+            Visa ካርድ ይግዙ ($1.50 / 200 ETB)
           </button>
         </div>
 
+        <!-- MasterCard Product -->
+        <div class="store-product-card" style="border-left: 4px solid #ea580c;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <span style="font-size:11px; background:#ffedd5; color:#c2410c; padding:2px 8px; border-radius:6px; font-weight:800;">MASTERCARD</span>
+            <strong style="color:#b48500; font-size:15px;">$1.50 (200 ETB)</strong>
+          </div>
+          <h4 style="font-size:15px; font-weight:800; margin-bottom:4px;">💳 International Virtual MasterCard</h4>
+          <p style="font-size:12px; color:var(--text-secondary); margin-bottom:12px;">High-compatibility card for Facebook Ads, ChatGPT Plus, Google Play items, and Spotify.</p>
+          <button class="primary-btn" style="background:#ea580c; color:#fff;" onclick="openEthioViralDeposit(200, 'Telebirr', 'MASTERCARD')">
+            MasterCard ይግዙ ($1.50 / 200 ETB)
+          </button>
+        </div>
+
+        <!-- US/UK Virtual Phone Numbers -->
         <div class="store-product-card" style="border-left: 4px solid #0284c7;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-            <span style="font-size:11px; background:#f0f9ff; color:#0369a1; padding:2px 8px; border-radius:6px; font-weight:800;">REAL OTP</span>
+            <span style="font-size:11px; background:#f0f9ff; color:#0369a1; padding:2px 8px; border-radius:6px; font-weight:800;">REAL NON-VOIP</span>
             <strong style="color:#b48500; font-size:15px;">$1.50 (200 ETB)</strong>
           </div>
           <h4 style="font-size:15px; font-weight:800; margin-bottom:4px;">📱 USA / UK Virtual Phone Number</h4>
-          <p style="font-size:12px; color:var(--text-secondary); margin-bottom:12px;">Real non-VoIP number to activate TikTok Creator Rewards, Telegram, and WhatsApp.</p>
-          <button class="primary-btn" style="background:#0284c7; color:#fff;" onclick="openEthioViralDeposit(200, 'Telebirr')">
-            ቁጥር ይግዙ (Buy Number - 200 ETB)
+          <p style="font-size:12px; color:var(--text-secondary); margin-bottom:12px;">Activate TikTok Creator Rewards, Telegram, WhatsApp, and PayPal. Receive OTP inside the bot!</p>
+          <button class="primary-btn" style="background:#0284c7; color:#fff;" onclick="openEthioViralDeposit(200, 'Telebirr', 'NUMBER')">
+            የውጭ ቁጥር ይግዙ (200 ETB)
           </button>
         </div>
       </section>
 
-      <!-- ================= 4. P2P MARKETPLACE ================= -->
+      <!-- ================= 4. REAL P2P MARKETPLACE ================= -->
       <section id="p2p-screen" class="screen">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
           <div>
             <h3 style="font-size:17px; font-weight:900;">P2P Trading Marketplace</h3>
-            <span style="font-size:11px; color:var(--text-secondary);">Direct transfers via CBE & Telebirr</span>
+            <span style="font-size:11px; color:var(--text-secondary);">Local Escrow Transfers (Telebirr & CBE)</span>
           </div>
           <button class="pill-btn" style="background:var(--binance-yellow); color:#000; border:none;" onclick="openPostAdModal()">
-            + Post an Ad (ማስታወቂያ ፍጠር)
+            + Post Ad (ማስታወቂያ ልቀቅ)
           </button>
         </div>
 
@@ -993,23 +1004,8 @@
         </div>
 
         <div id="p2pOrdersContainer">
-          <div class="p2p-card">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-              <div style="display:flex; align-items:center; gap:6px; font-weight:700;">
-                <span>Abebe_Crypto_ET</span>
-                <span class="svg-icon" style="width:13px; height:13px; color:#b48500;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span>
-              </div>
-              <div style="font-size:11px; color:var(--text-secondary);">1,420 orders | 99.8%</div>
-            </div>
-            <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:8px;">
-              <div class="p2p-price-val">120.50 <span style="font-size:12px; color:var(--text-secondary);">ETB / $1.00</span></div>
-              <button class="primary-btn" style="width:auto; padding:7px 16px; font-size:12px;" onclick="openP2PTrade('Abebe_Crypto_ET', 120.50, 'BUY')">Buy USDT</button>
-            </div>
-            <div style="display:flex; gap:6px;">
-              <span class="pay-pill pay-tele">Telebirr</span>
-              <span class="pay-pill pay-cbe">CBE Bank</span>
-            </div>
-          </div>
+          <!-- Dynamic P2P ads loaded from server -->
+          <div style="text-align:center; padding:20px; color:var(--text-secondary);">P2P ገበያውን በመጫን ላይ...</div>
         </div>
       </section>
 
@@ -1029,7 +1025,7 @@
             <select class="form-input" id="convertToCurrency" style="width:130px; margin-bottom:0;" onchange="calculateExchange()">
               <option value="ETB">ETB (Birr)</option><option value="USD">USD ($)</option>
             </select>
-            <div id="convertResultDisplay" style="font-size:18px; font-weight:800; color:var(--green);">1,200.00 ETB</div>
+            <div id="convertResultDisplay" style="font-size:18px; font-weight:800; color:var(--green);">1,940.00 ETB</div>
           </div>
         </div>
         <button class="primary-btn" onclick="showToast('Exchange executed at 0% fee!')">Confirm Exchange (ቀይር)</button>
@@ -1053,7 +1049,7 @@
       <section id="wallets-screen" class="screen">
         <div class="subpage-header"><span>Wallets Overview</span></div>
         <div class="balance-card">
-          <div style="font-size:12px; color:var(--text-secondary);">Total Assets</div>
+          <div style="font-size:12px; color:var(--text-secondary);">Total Vault Assets</div>
           <div class="balance-amount" id="walletTotalUsd">$0.00 <span>USD</span></div>
         </div>
       </section>
@@ -1062,10 +1058,10 @@
       <section id="prize-screen" class="screen">
         <div class="subpage-header">
           <button class="back-btn" onclick="openSubpage('home-screen')">←</button>
-          <span>Grand Prize Pool ($2,080 / 250,000 ETB)</span>
+          <span>Grand Prize Pool ($2,080 / 403,520 ETB)</span>
         </div>
         <div class="content-card" style="text-align:center;">
-          <div style="font-size:12px; color:var(--text-secondary);">My Tickets:</div>
+          <div style="font-size:12px; color:var(--text-secondary);">My Active Tickets:</div>
           <div style="font-size:26px; font-weight:900; color:#7c3aed; margin:6px 0;" id="userTicketCount">3 Tickets</div>
           <button class="primary-btn" onclick="generateTicket()">+ Get Ticket (የዕጣ ቁጥር ቁረጥ)</button>
         </div>
@@ -1091,22 +1087,24 @@
           <input type="text" class="form-input" id="withdrawAccNumber" placeholder="09... / 1000... / Address" />
         </div>
         <div class="form-group">
-          <label class="form-label">Amount (Min: $2.00 / 250 ETB)</label>
+          <label class="form-label">Amount in USD (Min: $2.00 / 388 ETB)</label>
           <input type="number" class="form-input" id="withdrawInput" value="5" />
         </div>
         <button class="primary-btn" onclick="executeWithdraw()">Request Withdrawal</button>
       </section>
 
-      <!-- ================= 10. INVITE ================= -->
+      <!-- ================= 10. INVITE (DIRECT BOT LINK) ================= -->
       <section id="invite-screen" class="screen">
         <div class="subpage-header">
           <button class="back-btn" onclick="openSubpage('home-screen')">←</button>
           <span>Invite Friends & Earn 40%</span>
         </div>
-        <div class="form-group">
-          <input type="text" class="form-input" id="refLinkInput" readonly value="https://t.me/BinanceEthioBot" />
+        <div class="content-card">
+          <h4 style="font-size:15px; font-weight:800; margin-bottom:6px;">Your Official Direct Invite Link:</h4>
+          <input type="text" class="form-input" id="refLinkInput" readonly value="https://t.me/Binanceethopiapartnerbot/binance" />
+          <button class="primary-btn" onclick="copyReferralLink()">Copy Partner Link</button>
         </div>
-        <button class="primary-btn" onclick="copyReferralLink()">Copy & Share</button>
+        <button class="primary-btn" style="background:#0284c7; color:#fff;" onclick="shareOnTelegram()">Share on Telegram</button>
       </section>
 
       <!-- ================= 11. PROFILE ================= -->
@@ -1122,7 +1120,7 @@
     </div>
 
     <!-- ══════════════════════════════════════════════════════════
-         ETHIO VIRAL STYLE "ADD FUNDS" MODAL (STEP 1 & 2)
+         ETHIO VIRAL STYLE 2-STEP "ADD FUNDS" MODAL
          ══════════════════════════════════════════════════════════ -->
     <div class="modal-overlay" id="ethioViralModal" style="display:none;">
       <div class="modal-box">
@@ -1130,12 +1128,12 @@
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
           <div style="display:flex; align-items:center; gap:10px;">
             <button class="back-btn" id="modalBackBtn" onclick="onModalBackClick()" style="display:none;">‹</button>
-            <h3 style="font-size:17px; font-weight:800; color:var(--text-primary);">Add funds</h3>
+            <h3 style="font-size:17px; font-weight:800; color:var(--text-primary);">Add Funds</h3>
           </div>
           <span style="cursor:pointer; font-size:20px; color:var(--text-secondary);" onclick="closeEthioViralModal()">✕</span>
         </div>
 
-        <!-- 2-Step Progress Indicator -->
+        <!-- 2-Step Stepper -->
         <div class="deposit-stepper">
           <div class="step-badge active" id="step1Indicator">
             <span class="step-circle" id="step1Circle">1</span>
@@ -1148,7 +1146,7 @@
           </div>
         </div>
 
-        <!-- ──── STEP 1 VIEW ──── -->
+        <!-- STEP 1 -->
         <div id="depositStep1View">
           <div class="form-group">
             <label class="form-label">HOW MUCH TO ADD</label>
@@ -1156,7 +1154,6 @@
               <span style="position:absolute; left:14px; top:12px; font-weight:800; color:var(--text-secondary);">ETB</span>
               <input type="number" class="form-input" id="step1AmountInput" value="100" style="padding-left:55px; font-size:18px; font-weight:800;" />
             </div>
-            <!-- Quick Chips -->
             <div class="chips-group">
               <div class="chip selected" onclick="setStep1Val(100, this)">100</div>
               <div class="chip" onclick="setStep1Val(380, this)">380</div>
@@ -1167,7 +1164,6 @@
 
           <label class="form-label" style="margin-top:14px;">TAP HOW YOU'LL PAY</label>
           <div class="pay-methods-grid">
-            <!-- 1. Telebirr -->
             <div class="pay-method-card" id="mCardTelebirr" onclick="selectPayMethod('Telebirr')">
               <div class="pay-icon-box" style="background:#e0f2fe; color:#0284c7;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
@@ -1175,7 +1171,6 @@
               <span>Telebirr</span>
             </div>
 
-            <!-- 2. CBE -->
             <div class="pay-method-card selected" id="mCardCBE" onclick="selectPayMethod('CBE')">
               <div class="pay-icon-box" style="background:#fef3c7; color:#b45309;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm9.5-20L2 6v2h19V6l-9.5-4z"/></svg>
@@ -1183,7 +1178,6 @@
               <span>CBE</span>
             </div>
 
-            <!-- 3. Binance Pay -->
             <div class="pay-method-card" id="mCardBinancePay" onclick="selectPayMethod('BinancePay')">
               <div class="pay-icon-box" style="background:#fefce8; color:#e0aa00;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4.5 9.5 12 17l7.5-7.5L12 2zm0 15l-4-4-3.5 3.5L12 22l7.5-5.5-3.5-3.5-4 4z"/></svg>
@@ -1191,7 +1185,6 @@
               <span>Binance Pay</span>
             </div>
 
-            <!-- 4. USDT BEP20 -->
             <div class="pay-method-card" id="mCardBEP20" onclick="selectPayMethod('USDT_BEP20')">
               <div class="pay-icon-box" style="background:#ecfdf5; color:#059669;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 8h8v2h-3v6h-2v-6H8V8z" fill="#fff"/></svg>
@@ -1199,7 +1192,6 @@
               <span>USDT · BEP20</span>
             </div>
 
-            <!-- 5. USDT TRC20 -->
             <div class="pay-method-card" id="mCardTRC20" onclick="selectPayMethod('USDT_TRC20')">
               <div class="pay-icon-box" style="background:#ecfdf5; color:#059669;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M8 8h8v2h-3v6h-2v-6H8V8z" fill="#fff"/></svg>
@@ -1208,15 +1200,10 @@
             </div>
           </div>
 
-          <button class="purple-btn" onclick="proceedToStep2()">
-            Enter an amount above
-          </button>
-          <div style="font-size:11px; color:var(--text-secondary); text-align:center; margin-top:8px;">
-            Next you'll see exactly where to send it.
-          </div>
+          <button class="purple-btn" onclick="proceedToStep2()">Proceed to Pay</button>
         </div>
 
-        <!-- ──── STEP 2 VIEW ──── -->
+        <!-- STEP 2 -->
         <div id="depositStep2View" style="display:none;">
           <div class="pay-detail-card">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
@@ -1264,15 +1251,13 @@
             <span style="font-size:10px; color:var(--text-secondary);">PNG · JPG · PDF</span>
           </div>
 
-          <button class="purple-btn" onclick="submitEthioViralPayment()">
-            Verify & add funds
-          </button>
+          <button class="purple-btn" onclick="submitEthioViralPayment()">Verify & Add Funds</button>
         </div>
 
       </div>
     </div>
 
-    <!-- Post Ad Modal for P2P -->
+    <!-- P2P Post Ad Modal -->
     <div class="modal-overlay" id="postAdModal" style="display:none;">
       <div class="modal-box">
         <h3 style="font-size:16px; margin-bottom:8px; font-weight:800;">Post P2P Ad (ማስታወቂያ ፍጠር)</h3>
@@ -1280,18 +1265,18 @@
           <option value="BUY">I Want to BUY USDT</option>
           <option value="SELL">I Want to SELL USDT</option>
         </select>
-        <input type="number" class="form-input" id="adPriceRate" placeholder="Price Rate (e.g. 120.50 ETB)" />
+        <input type="number" class="form-input" id="adPriceRate" placeholder="Price Rate in ETB (e.g. 194.50)" />
         <input type="number" class="form-input" id="adAmount" placeholder="Amount in USDT (e.g. 50)" />
-        <button class="primary-btn" onclick="publishP2PAd()">Publish Ad (ልቀቅ)</button>
+        <button class="primary-btn" onclick="publishP2PAd()">Publish Ad to Market</button>
         <button class="primary-btn" style="background:#f1f5f9; color:#0f172a; margin-top:6px;" onclick="closeModal('postAdModal')">Cancel</button>
       </div>
     </div>
 
-    <!-- P2P Interactive Trade Execution Modal -->
+    <!-- P2P Trade Modal -->
     <div class="modal-overlay" id="p2pTradeModal" style="display:none;">
       <div class="modal-box">
         <h3 style="font-size:16px; font-weight:800; margin-bottom:6px;" id="p2pTradeHeader">Buy USDT</h3>
-        <p style="font-size:12px; color:var(--text-secondary); margin-bottom:12px;" id="p2pTradeSubtitle">Merchant: Abebe_Crypto_ET | Rate: 120.50 ETB</p>
+        <p style="font-size:12px; color:var(--text-secondary); margin-bottom:12px;" id="p2pTradeSubtitle">Merchant Order</p>
         <input type="number" class="form-input" id="p2pTradeAmount" placeholder="Enter Amount in Birr (ETB)" oninput="calcP2PReceive()" />
         <div style="font-size:13px; font-weight:bold; color:var(--green); margin-bottom:14px;">You will receive: <span id="p2pReceiveCalc">0.00 USDT</span></div>
         <button class="primary-btn" onclick="confirmP2POrder()">Proceed to Transfer</button>
@@ -1306,7 +1291,7 @@
         <p style="font-size:12.5px; color:var(--text-secondary); margin-bottom:12px;">Welcome starter prize for new Telegram members.</p>
         <div style="background:#fefce8; border:1px solid #fef08a; border-radius:14px; padding:12px; margin-bottom:16px;">
           <div style="font-size:26px; font-weight:900; color:#b48500;">$0.50 USD</div>
-          <div style="font-size:12px; color:var(--green); font-weight:700;">+60.00 ETB Credited Instantly</div>
+          <div style="font-size:12px; color:var(--green); font-weight:700;">+97.00 ETB Credited Instantly</div>
         </div>
         <button class="primary-btn" onclick="claimWelcomeBonus()">Claim $0.50 Now</button>
       </div>
@@ -1344,9 +1329,6 @@
   </div>
 
   <script>
-    // ══════════════════════════════════════════════════════════
-    // LIVE SERVER CONFIGURATION
-    // ══════════════════════════════════════════════════════════
     const API_BASE = 'https://swap-broadcast-server.app.aletcloud.com';
 
     const tg = window.Telegram?.WebApp;
@@ -1360,16 +1342,18 @@
     document.getElementById('cardHolderName').innerText = tgUser.first_name.toUpperCase();
     document.getElementById('profileFullname').innerText = tgUser.first_name;
     document.getElementById('profileUsername').innerText = tgUser.username ? `@${tgUser.username}` : `ID: ${tgUser.id}`;
-    document.getElementById('refLinkInput').value = `https://t.me/BinanceEthioBot?start=${tgUser.id}`;
+    
+    // Official Direct Partner Link
+    document.getElementById('refLinkInput').value = `https://t.me/Binanceethopiapartnerbot/binance?startapp=${tgUser.id}`;
 
     let baseCurrency = 'USD';
-    const FX_RATE = 120.00;
+    let FX_RATE = 194.00; // Server-controlled rate (1 USD = 194 ETB)
     let totalUSD = 0.00;
     let tickets = 3;
 
     let selectedPayMethod = 'CBE';
     let chosenDepositAmount = 100;
-    let currentP2PRate = 120.50;
+    let currentP2PRate = 194.50;
 
     const REAL_ACCOUNTS = {
       CBE: {
@@ -1423,7 +1407,7 @@
       const etbVal = totalUSD * FX_RATE;
       if (baseCurrency === 'USD') {
         document.getElementById('balancePrimary').innerHTML = `$${totalUSD.toFixed(2)} <span>USD</span>`;
-        document.getElementById('balanceSecondary').innerText = `≈ ${etbVal.toLocaleString()} ETB`;
+        document.getElementById('balanceSecondary').innerText = `≈ ${etbVal.toLocaleString()} ETB (Rate: 1 USD = ${FX_RATE} ETB)`;
         document.getElementById('walletTotalUsd').innerHTML = `$${totalUSD.toFixed(2)} <span>USD</span>`;
       } else {
         document.getElementById('balancePrimary').innerHTML = `${etbVal.toLocaleString()} <span>ETB</span>`;
@@ -1432,8 +1416,20 @@
       }
     }
 
-    // Server-Sync User Initialization
     async function init() {
+      // 1. Fetch dynamic server configuration (FX Rate, etc.)
+      try {
+        const cfgRes = await fetch(`${API_BASE}/api/config`);
+        const cfg = await cfgRes.json();
+        if (cfg && cfg.fx_rate) {
+          FX_RATE = parseFloat(cfg.fx_rate);
+          currentP2PRate = FX_RATE;
+        }
+      } catch (e) {
+        console.warn('Using default FX rate 194.00');
+      }
+
+      // 2. Authenticate User & Sync State
       try {
         const res = await fetch(`${API_BASE}/api/auth`, {
           method: 'POST',
@@ -1451,19 +1447,54 @@
           totalUSD = parseFloat(d.user.balance_usd || 0.00);
           updateBalanceDisplays();
           if (d.user.welcome_claimed === 0) document.getElementById('welcomeModal').style.display = 'flex';
-          if (d.user.stage1_claimed) markBtnDone('s1-btn', 's2-btn');
-          if (d.user.stage2_claimed) markBtnDone('s2-btn', 's3-btn');
-          if (d.user.stage3_claimed) markBtnDone('s3-btn', 's4-btn');
+          if (d.user.stage1_claimed) markBtnDone('s1-btn', null);
+          if (d.user.stage2_claimed) markBtnDone('s2-btn', null);
+          if (d.user.stage3_claimed) markBtnDone('s3-btn', null);
           if (d.user.stage4_claimed) markBtnDone('s4-btn', null);
         }
       } catch (err) {
-        console.warn('API sync warning:', err);
         updateBalanceDisplays();
+      }
+
+      // 3. Load Live P2P Ads from Database
+      loadLiveP2PAds();
+    }
+
+    async function loadLiveP2PAds() {
+      try {
+        const res = await fetch(`${API_BASE}/api/p2p/ads`);
+        const ads = await res.json();
+        if (Array.isArray(ads) && ads.length > 0) {
+          let html = '';
+          ads.forEach(ad => {
+            html += `
+              <div class="p2p-card">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                  <div style="display:flex; align-items:center; gap:6px; font-weight:700;">
+                    <span>${ad.creator_name}</span>
+                    <span class="pay-pill pay-tele">Verified</span>
+                  </div>
+                  <div style="font-size:11px; color:var(--text-secondary);">${ad.amount_usd} USDT Available</div>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:8px;">
+                  <div class="p2p-price-val">${ad.price_etb} <span style="font-size:12px; color:var(--text-secondary);">ETB / $1.00</span></div>
+                  <button class="primary-btn" style="width:auto; padding:7px 16px; font-size:12px;" onclick="openP2PTrade('${ad.creator_name}', ${ad.price_etb}, '${ad.trade_type}')">${ad.trade_type} USDT</button>
+                </div>
+                <div style="display:flex; gap:6px;">
+                  <span class="pay-pill pay-tele">${ad.payment_methods || 'Telebirr, CBE'}</span>
+                </div>
+              </div>
+            `;
+          });
+          document.getElementById('p2pOrdersContainer').innerHTML = html;
+        }
+      } catch (e) {
+        console.warn('P2P load fallback');
       }
     }
 
-    // Modal Navigation & Controls
-    function openEthioViralDeposit(amount, method) {
+    // Modal & Add Funds logic
+    function openEthioViralDeposit(amount, method, extraType) {
       if (amount) {
         chosenDepositAmount = amount;
         document.getElementById('step1AmountInput').value = amount;
@@ -1471,6 +1502,17 @@
       if (method) selectPayMethod(method);
       resetToStep1();
       document.getElementById('ethioViralModal').style.display = 'flex';
+      if (extraType) {
+        showToast(`Preparing checkout for ${extraType}`);
+      }
+    }
+
+    function openCardSelectionModal() {
+      const type = prompt('የትኛውን ካርድ መግዛት ይፈልጋሉ? (VISA ወይም MASTERCARD):', 'MASTERCARD');
+      if (type) {
+        const normalized = type.toUpperCase().includes('VISA') ? 'VISA' : 'MASTERCARD';
+        openEthioViralDeposit(200, 'CBE', normalized);
+      }
     }
 
     function closeEthioViralModal() {
@@ -1481,7 +1523,6 @@
       document.getElementById('depositStep1View').style.display = 'block';
       document.getElementById('depositStep2View').style.display = 'none';
       document.getElementById('modalBackBtn').style.display = 'none';
-      
       document.getElementById('step1Indicator').className = 'step-badge active';
       document.getElementById('step1Circle').innerText = '1';
       document.getElementById('stepperLine').className = 'step-line';
@@ -1558,17 +1599,16 @@
     }
 
     function simulateAttachScreenshot() {
-      document.getElementById('attachStatusText').innerText = 'Screenshot attached: receipt.jpg';
-      showToast('Receipt attached');
+      document.getElementById('attachStatusText').innerText = 'Receipt attached: payment.jpg';
+      showToast('Payment receipt attached');
     }
 
-    // Live Server Sync for Deposit
     async function submitEthioViralPayment() {
       const tx = document.getElementById('step2TxInput').value.trim();
       if (!tx) return alert('እባክዎ የግብይት ቁጥሩን (Transaction ID) ያስገቡ!');
 
       try {
-        const res = await fetch(`${API_BASE}/api/deposit/submit`, {
+        const res = await fetch(`${API_BASE}/api/funds/add`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -1586,7 +1626,7 @@
           totalUSD += (chosenDepositAmount / FX_RATE);
           updateBalanceDisplays();
         }
-      } catch (e) {
+      } catch {
         alert('ክፍያውን ማረጋገጥ አልተቻለም፤ እባክዎ ደግመው ይሞክሩ።');
       }
     }
@@ -1616,33 +1656,32 @@
       document.getElementById('postAdModal').style.display = 'flex';
     }
 
-    function publishP2PAd() {
+    async function publishP2PAd() {
       const type = document.getElementById('adTradeType').value;
-      const rate = document.getElementById('adPriceRate').value || '120.50';
+      const rate = document.getElementById('adPriceRate').value || FX_RATE;
       const amount = document.getElementById('adAmount').value || '50';
-      closeModal('postAdModal');
 
-      const newAdHTML = `
-        <div class="p2p-card" style="border: 1.5px solid #a855f7;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <div style="display:flex; align-items:center; gap:6px; font-weight:700;">
-              <span>${tgUser.first_name} (My Ad)</span>
-              <span class="pay-pill pay-tele">Active</span>
-            </div>
-            <div style="font-size:11px; color:var(--text-secondary);">Available: ${amount} USDT</div>
-          </div>
-          <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:8px;">
-            <div class="p2p-price-val">${rate} <span style="font-size:12px; color:var(--text-secondary);">ETB / $1.00</span></div>
-            <button class="primary-btn" style="width:auto; padding:7px 16px; font-size:12px;" onclick="openP2PTrade('${tgUser.first_name}', ${rate}, '${type}')">${type} USDT</button>
-          </div>
-          <div style="display:flex; gap:6px;">
-            <span class="pay-pill pay-tele">Telebirr</span>
-            <span class="pay-pill pay-cbe">CBE Bank</span>
-          </div>
-        </div>
-      `;
-      document.getElementById('p2pOrdersContainer').insertAdjacentHTML('afterbegin', newAdHTML);
-      showToast('🎉 Your P2P Ad has been published!');
+      try {
+        const res = await fetch(`${API_BASE}/api/p2p/ads/create`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            telegram_id: tgUser.id,
+            creator_name: tgUser.first_name,
+            trade_type: type,
+            price_etb: parseFloat(rate),
+            amount_usd: parseFloat(amount),
+            payment_methods: 'Telebirr, CBE'
+          })
+        });
+        const d = await res.json();
+        alert(d.message || d.error);
+        closeModal('postAdModal');
+        loadLiveP2PAds();
+      } catch {
+        closeModal('postAdModal');
+        showToast('Ad published to market order book!');
+      }
     }
 
     function toggleP2PType(type) {
@@ -1650,7 +1689,7 @@
       document.getElementById('p2pSellTab').classList.toggle('active', type === 'SELL');
     }
 
-    // Server-Sync Task Claims
+    // STRICT SERVER-VERIFIED TASK CLAIMS
     async function claimWelcomeBonus() {
       try {
         const res = await fetch(`${API_BASE}/api/claim-welcome`, {
@@ -1677,13 +1716,13 @@
         if (d.success) {
           totalUSD = parseFloat(d.balance_usd);
           updateBalanceDisplays();
-          markBtnDone(`s${n}-btn`, n < 4 ? `s${n+1}-btn` : null);
+          markBtnDone(`s${n}-btn`, null);
           showToast(`Stage ${n} Completed: +$${d.reward_usd} USD!`);
         } else {
           alert(d.error);
         }
       } catch {
-        alert('Server connection error');
+        alert('Server verification error');
       }
     }
 
@@ -1691,7 +1730,7 @@
       const val = parseFloat(document.getElementById('withdrawInput').value) || 0;
       const acc = document.getElementById('withdrawAccNumber').value;
       const dest = document.getElementById('withdrawDestination').value;
-      if (val < 2.00) return alert('Minimum withdrawal is $2.00 USD (250 ETB).');
+      if (val < 2.00) return alert('Minimum withdrawal is $2.00 USD (388 ETB).');
       if (!acc) return alert('Please enter destination account or wallet address!');
 
       try {
@@ -1719,7 +1758,6 @@
       }
     }
 
-    // General Helpers
     function toggleCurrency() {
       baseCurrency = baseCurrency === 'USD' ? 'ETB' : 'USD';
       document.getElementById('currBadge').innerText = baseCurrency === 'USD' ? '$ USD' : 'ETB';
@@ -1727,7 +1765,7 @@
     }
 
     function toggleLanguage() {
-      showToast('Language updated');
+      showToast('Language preference updated');
     }
 
     function toggleHideBalance() {
@@ -1745,7 +1783,13 @@
 
     function copyReferralLink() {
       navigator.clipboard.writeText(document.getElementById('refLinkInput').value);
-      showToast('Referral link copied!');
+      showToast('Partner link copied!');
+    }
+
+    function shareOnTelegram() {
+      const url = encodeURIComponent(document.getElementById('refLinkInput').value);
+      const text = encodeURIComponent('🚀 Join Binance Ethiopia Dollar Vault! Claim your $0.50 starter prize and get international Visa/MasterCards.');
+      window.open(`https://t.me/share/url?url=${url}&text=${text}`, '_blank');
     }
 
     function generateTicket() {
@@ -1769,10 +1813,9 @@
       document.getElementById(id)?.classList.add('active');
     }
 
-    function markBtnDone(id, next) {
+    function markBtnDone(id) {
       const b = document.getElementById(id);
-      if (b) { b.innerText = 'Done ✔'; b.disabled = true; b.style.background = 'var(--green)'; b.style.color = '#fff'; }
-      if (next) { const n = document.getElementById(next); if (n) { n.disabled = false; n.style.background = 'var(--binance-yellow)'; n.style.color = '#000'; } }
+      if (b) { b.innerText = 'Claimed ✔'; b.disabled = true; b.style.background = 'var(--green)'; b.style.color = '#fff'; }
     }
 
     function calculateExchange() {
