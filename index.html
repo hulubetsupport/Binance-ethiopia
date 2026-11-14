@@ -1,14 +1,17 @@
 
+
+
+
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <title>Binance Ethiopia - Dollar Asset Vault & Marketplace</title>
+  <title>Binance Ethiopia - Dollar Asset Vault</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script src="calc.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     /* ═══════════════ THEME VARIABLES ═══════════════ */
     :root, [data-theme="light"] {
@@ -63,20 +66,18 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    body {
+    html, body {
+      width: 100%;
+      min-height: 100vh;
       background-color: var(--bg);
       color: var(--text);
-      display: flex;
-      justify-content: center;
-      min-height: 100vh;
       overflow-x: hidden;
       transition: background-color 0.2s, color 0.2s;
     }
 
+    /* Full Edge-to-Edge Container on ALL Devices */
     .app-container {
       width: 100%;
-      min-width: 360px;
-      max-width: 430px;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -86,9 +87,10 @@
 
     .screen-content {
       flex: 1;
+      width: 100%;
       overflow-y: auto;
       overflow-x: hidden;
-      padding-top: max(56px, env(safe-area-inset-top));
+      padding-top: max(92px, calc(env(safe-area-inset-top, 0px) + 60px));
       padding-left: 14px;
       padding-right: 14px;
       padding-bottom: 88px;
@@ -96,7 +98,7 @@
     }
     .screen-content::-webkit-scrollbar { display: none; }
 
-    .screen { display: none; animation: fadeIn 0.16s ease-out; }
+    .screen { display: none; width: 100%; animation: fadeIn 0.16s ease-out; }
     .screen.active { display: block; }
 
     @keyframes fadeIn {
@@ -142,12 +144,13 @@
       justify-content: space-between;
       align-items: center;
       gap: 8px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      width: 100%;
     }
     .user-pill {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 10px;
       cursor: pointer;
       min-width: 0;
       flex: 1;
@@ -167,7 +170,7 @@
     }
     .user-info { min-width: 0; }
     .user-info .name {
-      font-size: 13.5px;
+      font-size: 14px;
       font-weight: 700;
       color: var(--text);
       white-space: nowrap;
@@ -194,7 +197,7 @@
       background: var(--card);
       border: 1px solid var(--border);
       color: var(--text);
-      padding: 6px 9px;
+      padding: 6px 10px;
       border-radius: 20px;
       font-size: 11px;
       font-weight: 700;
@@ -217,7 +220,7 @@
       cursor: pointer;
     }
 
-    /* KYC Top Banner Pill */
+    /* KYC Bar */
     .kyc-bar {
       display: flex;
       justify-content: space-between;
@@ -225,9 +228,9 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 8px 12px;
+      padding: 10px 14px;
       margin-bottom: 12px;
-      font-size: 11.5px;
+      font-size: 12px;
     }
     .kyc-badge {
       padding: 3px 8px;
@@ -246,9 +249,10 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 18px;
-      padding: 15px;
+      padding: 16px;
       margin-bottom: 12px;
       box-shadow: var(--shadow);
+      width: 100%;
     }
 
     .balance-card {
@@ -259,6 +263,7 @@
       margin-bottom: 12px;
       position: relative;
       overflow: hidden;
+      width: 100%;
     }
     .balance-title-row {
       display: flex;
@@ -275,44 +280,69 @@
       letter-spacing: -0.5px;
     }
     .balance-amount span { font-size: 14px; color: var(--gold-text); margin-left: 4px; }
-    .balance-secondary { font-size: 12px; color: var(--green); margin-top: 4px; font-weight: 700; }
+    .balance-secondary { font-size: 12.5px; color: var(--green); margin-top: 4px; font-weight: 700; }
 
-    /* Virtual Card */
+    /* ═══════════════ AUTHENTIC ORIGINAL VISA ROYAL BLUE VIRTUAL CARD ═══════════════ */
     .virtual-card-box {
-      background: linear-gradient(135deg, #17153b 0%, #2e236c 60%, #4338ca 100%);
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: linear-gradient(135deg, #1a1f71 0%, #0e154a 55%, #253b9e 100%) !important;
+      border: 1px solid rgba(255, 255, 255, 0.18) !important;
       border-radius: 20px;
-      padding: 18px;
-      color: #ffffff;
+      padding: 20px;
+      color: #ffffff !important;
       margin-bottom: 10px;
-      box-shadow: 0 10px 24px rgba(23, 21, 59, 0.35);
+      box-shadow: 0 12px 28px rgba(26, 31, 113, 0.38);
+      position: relative;
+      overflow: hidden;
+      width: 100%;
     }
-    .card-top-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .virtual-card-box::before {
+      content: '';
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(247, 182, 0, 0.16) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .card-top-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .visa-chip {
+      width: 34px;
+      height: 24px;
+      border-radius: 5px;
+      background: linear-gradient(135deg, #f7d060, #d49b1a);
+      border: 1px solid rgba(255,255,255,0.3);
+      display: inline-block;
+      margin-right: 10px;
+    }
     .card-number {
-      font-size: 16.5px;
+      font-size: 17px;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 2.2px;
       font-family: monospace;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      color: #ffffff !important;
     }
-    .card-bottom-row { display: flex; justify-content: space-between; align-items: flex-end; }
+    .card-bottom-row { display: flex; justify-content: space-between; align-items: flex-end; color: #ffffff !important; }
 
     /* Quick Actions */
     .action-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 9px;
+      gap: 10px;
       margin-bottom: 12px;
+      width: 100%;
     }
     .action-btn {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 12px 6px;
-      min-height: 74px;
+      min-height: 76px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -334,7 +364,7 @@
     .action-icon-circle.deposit { background: var(--green-bg); color: var(--green); }
     .action-icon-circle.withdraw { background: var(--blue-bg); color: var(--blue); }
     .action-icon-circle.store { background: var(--purple-bg); color: var(--purple); }
-    .action-btn span { font-size: 11px; font-weight: 700; color: var(--text); text-align: center; }
+    .action-btn span { font-size: 11.5px; font-weight: 700; color: var(--text); text-align: center; }
 
     /* Stages */
     .stage-item {
@@ -386,6 +416,7 @@
     }
     .btn-block { width: 100%; }
     .btn-gold { background: var(--gold); color: #0b0e14; }
+    .btn-visa { background: #1a1f71; color: #ffffff; }
     .btn-purple { background: #7c3aed; color: #ffffff; }
     .btn-green { background: var(--green); color: #0b0e14; }
     .btn-red { background: var(--red); color: #ffffff; }
@@ -505,10 +536,8 @@
     .tl-step.done { color: var(--green); }
     .tl-step.current .tl-dot { background: var(--gold); border-color: var(--gold); color: #0b0e14; }
     .tl-step.current { color: var(--gold-text); }
-
     .order-expired { opacity: 0.55; filter: grayscale(0.8); }
 
-    /* ═══════════════ LOCKED TRADING BANNER ═══════════════ */
     .kyc-lock-banner {
       background: var(--gold-bg);
       border: 1px solid var(--gold);
@@ -519,7 +548,7 @@
       line-height: 1.5;
     }
 
-    /* ═══════════════ FUTURES (STRICT DARK-MODE ONLY) ═══════════════ */
+    /* Futures (Strict Dark-Mode Only) */
     #futures-screen {
       background: #0b0e14;
       color: #e8ecf3;
@@ -535,7 +564,7 @@
       text-align: center;
     }
 
-    /* ═══════════════ MODALS & BOTTOM SHEETS ═══════════════ */
+    /* ═══════════════ MODALS & FULL-WIDTH BOTTOM SHEETS ═══════════════ */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -545,15 +574,14 @@
       display: none;
       justify-content: center;
       align-items: flex-end;
-      padding-top: max(56px, env(safe-area-inset-top));
+      padding-top: max(76px, env(safe-area-inset-top, 0px));
     }
     .modal-overlay.open { display: flex; }
-    .modal-overlay.center { align-items: center; padding: 16px; }
+    .modal-overlay.center { align-items: center; padding: 14px; }
 
     .sheet-box {
       width: 100%;
-      max-width: 430px;
-      max-height: 88vh;
+      max-height: 86vh;
       overflow-y: auto;
       background: var(--card);
       border-top: 1px solid var(--border);
@@ -571,7 +599,7 @@
       to { transform: translateY(0); opacity: 1; }
     }
 
-    /* Add Funds Stepper */
+    /* Add Funds Stepper & Method Cards */
     .deposit-stepper { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; font-size: 11.5px; font-weight: 700; }
     .step-badge { display: flex; align-items: center; gap: 6px; color: var(--muted); }
     .step-badge.active { color: var(--purple); }
@@ -587,15 +615,19 @@
       background: var(--card-alt);
       border: 1.5px solid var(--border);
       border-radius: 13px;
-      padding: 11px 6px;
+      padding: 12px 6px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      gap: 4px;
       cursor: pointer;
       font-size: 11px;
       font-weight: 700;
+      text-align: center;
+      min-height: 58px;
     }
+    .pay-method-card small { font-size: 9.5px; color: var(--muted); font-weight: 600; }
     .pay-method-card.selected { border-color: var(--purple); background: var(--purple-bg); }
 
     .upload-box {
@@ -619,12 +651,11 @@
       border: 1px solid var(--border);
     }
 
-    /* ═══════════════ BOTTOM NAVIGATION (6 TABS) ═══════════════ */
+    /* Full-Width Bottom Navigation (6 Tabs) */
     .nav-bar {
       position: fixed;
       bottom: 0; left: 0; right: 0;
-      max-width: 430px;
-      margin: 0 auto;
+      width: 100%;
       height: 68px;
       background: var(--nav-bg);
       backdrop-filter: blur(14px);
@@ -682,12 +713,12 @@
 <body>
 
   <div class="app-container">
-    <div class="screen-content">
+    <div class="screen-content" id="mainScreenContent">
 
-      <!-- Global Top Header (Always below Telegram Close/menu bar) -->
+      <!-- Global Top Header -->
       <div class="top-header">
         <div class="user-pill" onclick="switchTab('profile')">
-          <div class="avatar" id="userAvatar">ET</div>
+          <div class="avatar" id="userAvatar">M</div>
           <div class="user-info">
             <div class="name">
               <span id="userName">Loading...</span>
@@ -701,7 +732,7 @@
 
         <div class="header-controls">
           <button class="pill-btn" onclick="toggleCurrency()" id="currSwitchBtn">$ USD ⇄ ETB</button>
-          <button class="pill-btn" onclick="toggleLanguage()" id="langSwitchBtn">አማ/EN</button>
+          <button class="pill-btn" onclick="toggleLanguage()" id="langSwitchBtn">EN</button>
           <button class="icon-toggle-btn" onclick="toggleTheme()" id="themeToggleBtn" aria-label="Toggle Theme">
             <span class="svg-icon" style="width:16px; height:16px;" id="themeIconSvg"></span>
           </button>
@@ -717,32 +748,35 @@
             <span style="color:var(--muted); font-weight:600;" data-i18n="kycStatusLbl">KYC Status:</span>
             <span class="kyc-badge kyc-none" id="homeKycBadge">None</span>
           </div>
-          <button class="btn btn-gold btn-sm" id="homeVerifyBtn" onclick="openSubpage('kyc-screen')">Verify Identity</button>
+          <button class="btn btn-gold btn-sm" id="homeVerifyBtn" onclick="openSubpage('kyc-screen')" data-i18n="verifyIdentityBtn">Verify Identity</button>
         </div>
 
         <!-- Dollar Vault Card -->
         <div class="balance-card">
           <div class="balance-title-row">
-            <span data-i18n="vaultTitle">Dollar Vault Asset (የዶላር አሴት)</span>
+            <span data-i18n="vaultTitle">Dollar Vault Asset</span>
             <button style="background:none; border:none; color:var(--muted); cursor:pointer; padding:4px;" onclick="toggleBalanceVisibility()" aria-label="Toggle Balance">
               <span class="svg-icon" style="width:18px; height:18px;" id="balEyeIcon"></span>
             </button>
           </div>
           <div class="balance-amount" id="balancePrimary"><span class="skeleton" style="width:120px; height:28px;">$0.00</span></div>
-          <div class="balance-secondary" id="balanceSecondary">Loading rate...</div>
-          <div style="font-size:11px; color:var(--muted); margin-top:6px;">
+          <div class="balance-secondary" id="balanceSecondary">Syncing rate...</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:6px;" data-i18n="vaultSub">
             Hold real USD value against inflation · Rate: <strong id="homeRateDisplay">1 USD = -- ETB</strong>
           </div>
         </div>
 
-        <!-- Virtual Visa / MasterCard Showcase (Masked by default) -->
+        <!-- Authentic Original Visa Virtual Card -->
         <div class="virtual-card-box">
           <div class="card-top-row">
-            <div>
-              <span style="font-size:11px; font-weight:800; color:var(--gold); letter-spacing:1px;" id="cardBrandLabel">ETHIOPIA GLOBAL CARD</span>
-              <div style="font-size:10px; color:#cbd5e1;">Telebirr & CBE Reloadable</div>
+            <div style="display:flex; align-items:center;">
+              <span class="visa-chip"></span>
+              <div>
+                <span style="font-size:12px; font-weight:800; color:#f7d060; letter-spacing:1px;">VIRTUAL CARD</span>
+                <div style="font-size:10px; color:#c7d2fe;" data-i18n="cardSub">Global Online Payment Card</div>
+              </div>
             </div>
-            <span style="font-size:13px; font-weight:900; font-style:italic;" id="cardNetworkBadge">VISA / MC</span>
+            <img src="https://i.postimg.cc/wTmHZtC9/20260816-182506.png" alt="VISA" style="height:26px; width:auto; object-fit:contain; border-radius:4px;" />
           </div>
 
           <div class="card-number">
@@ -754,27 +788,27 @@
 
           <div class="card-bottom-row">
             <div>
-              <div style="font-size:9px; color:#94a3b8; text-transform:uppercase;">CARD HOLDER</div>
+              <div style="font-size:9px; color:#a5b4fc; text-transform:uppercase;">CARD HOLDER</div>
               <div style="font-size:12px; font-weight:700;" id="cardHolderName">---</div>
             </div>
             <div>
-              <div style="font-size:9px; color:#94a3b8; text-transform:uppercase;">EXP / CVV</div>
+              <div style="font-size:9px; color:#a5b4fc; text-transform:uppercase;">EXP / CVV</div>
               <div style="font-size:12px; font-weight:700;" id="cardExpCvv">••/•• • •••</div>
             </div>
-            <div style="background:rgba(255,255,255,0.18); padding:3px 8px; border-radius:6px; font-size:10.5px; font-weight:700;" id="cardStatePill">
-              NOT ORDERED
+            <div style="background:rgba(255,255,255,0.2); padding:3px 8px; border-radius:6px; font-size:10.5px; font-weight:700;" id="cardStatePill">
+              NOT ACTIVATED
             </div>
           </div>
         </div>
 
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px;">
-          <button class="btn btn-purple btn-sm" onclick="switchTab('store')">Get Visa / MasterCard</button>
-          <button class="btn btn-ghost btn-sm" onclick="openAddFundsModal(500, 'Telebirr')">Add Funds (Telebirr)</button>
+          <button class="btn btn-visa btn-sm" onclick="switchTab('store')" data-i18n="getCardBtn">Get Virtual Card</button>
+          <button class="btn btn-ghost btn-sm" onclick="openAddFundsModal('ETB', 'Telebirr')" data-i18n="topUpBtn">Add Funds</button>
         </div>
 
         <!-- 6 Quick Actions -->
         <div class="action-grid">
-          <div class="action-btn" onclick="openAddFundsModal(100, 'CBE')">
+          <div class="action-btn" onclick="openAddFundsModal('ETB', 'CBE')">
             <div class="action-icon-circle deposit">
               <span class="svg-icon" style="width:19px; height:19px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
             </div>
@@ -790,7 +824,7 @@
             <div class="action-icon-circle store">
               <span class="svg-icon" style="width:18px; height:18px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
             </div>
-            <span data-i18n="actStore">Store / ሱቅ</span>
+            <span data-i18n="actStore">Store</span>
           </div>
           <div class="action-btn" onclick="switchTab('p2p')">
             <div class="action-icon-circle deposit">
@@ -816,8 +850,8 @@
         <div class="card">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
             <div>
-              <strong style="font-size:14px; color:var(--gold-text);" data-i18n="stagesTitle">Task Prize Stages (የደረጃ ሽልማቶች)</strong>
-              <span style="font-size:11px; color:var(--muted); display:block;">Verified directly by backend</span>
+              <strong style="font-size:14px; color:var(--gold-text);" data-i18n="stagesTitle">Task Prize Stages</strong>
+              <span style="font-size:11px; color:var(--muted); display:block;" data-i18n="stagesSub">Verified directly by backend</span>
             </div>
             <span class="kyc-badge kyc-pending">4 Stages</span>
           </div>
@@ -826,7 +860,7 @@
             <div style="display:flex; align-items:center; gap:10px;">
               <div class="stage-num">1</div>
               <div class="stage-text">
-                <h5>Identity KYC Verification</h5>
+                <h5 data-i18n="s1Title">Identity KYC Verification</h5>
                 <span>Reward: +$1.00 USD</span>
               </div>
             </div>
@@ -837,7 +871,7 @@
             <div style="display:flex; align-items:center; gap:10px;">
               <div class="stage-num">2</div>
               <div class="stage-text">
-                <h5>First Add Funds (ዲፖዚት)</h5>
+                <h5 data-i18n="s2Title">First Add Funds</h5>
                 <span>Reward: +$2.50 USD</span>
               </div>
             </div>
@@ -848,7 +882,7 @@
             <div style="display:flex; align-items:center; gap:10px;">
               <div class="stage-num">3</div>
               <div class="stage-text">
-                <h5>Invite 5 Active Friends</h5>
+                <h5 data-i18n="s3Title">Invite 5 Active Friends</h5>
                 <span>Reward: +$5.00 USD</span>
               </div>
             </div>
@@ -859,8 +893,8 @@
             <div style="display:flex; align-items:center; gap:10px;">
               <div class="stage-num" style="border-color:var(--purple); color:var(--purple);">4</div>
               <div class="stage-text">
-                <h5 style="color:var(--purple);">VIP Champion Milestone</h5>
-                <span>20 Invites OR $16+ Approved Funds</span>
+                <h5 style="color:var(--purple);" data-i18n="s4Title">VIP Champion Milestone</h5>
+                <span data-i18n="s4Req">20 Invites OR $16+ Approved Funds</span>
                 <strong style="color:var(--green); font-size:12px;">Reward: +$40.00 USD</strong>
               </div>
             </div>
@@ -871,7 +905,7 @@
         <!-- Live Market Preview -->
         <div class="card">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-            <strong style="font-size:14px;">Live Crypto Prices</strong>
+            <strong style="font-size:14px;" data-i18n="liveMarketsTitle">Live Crypto Markets</strong>
             <span style="font-size:11.5px; color:var(--muted);" id="liveTickerStatus">Connecting...</span>
           </div>
           <div id="homeLiveMarkets">
@@ -885,15 +919,14 @@
       <!-- ================= 2. STORE SCREEN ================= -->
       <section id="store-screen" class="screen">
         <div style="margin-bottom:12px;">
-          <h3 style="font-size:17px; font-weight:900;">Digital Card & Global Services Store</h3>
-          <span style="font-size:11.5px; color:var(--muted);">Pay via Telebirr / CBE · Real Ethiopian Online Payment Cards</span>
+          <h3 style="font-size:17px; font-weight:900;" data-i18n="storeHeader">Global Card &amp; Digital Store</h3>
+          <span style="font-size:11.5px; color:var(--muted);" data-i18n="storeSub">Reloadable with Telebirr &amp; CBE · Pay anywhere online</span>
         </div>
 
-        <!-- Ethiopian Guide Card -->
         <div class="card" style="border-color:var(--gold); background:var(--gold-bg);">
-          <strong style="font-size:12.5px; color:var(--gold-text); display:block; margin-bottom:4px;">ለኢትዮጵያውያን የክፍያ ካርዶች ጥቅም (Why Visa/MasterCard?)</strong>
-          <p style="font-size:11.5px; color:var(--text); line-height:1.5;">
-            ያለ ውጭ ሀገር ባንክ አካውንት በቴሌብር/CBE ዶላር እየሞሉ Telegram Premium፣ Facebook/TikTok Ads፣ ChatGPT፣ Google Play እና Netflix በቀጥታ መክፈል ይችላሉ።
+          <strong style="font-size:12.5px; color:var(--gold-text); display:block; margin-bottom:4px;" data-i18n="cardBenefitsTitle">Ethiopian Global Payment Cards</strong>
+          <p style="font-size:11.5px; color:var(--text); line-height:1.5;" data-i18n="cardBenefitsBody">
+            Unlock Telegram Premium, TikTok/Facebook Ads, ChatGPT Plus, Google Play, Steam, and Netflix without an international bank account. Fund directly in ETB or Crypto.
           </p>
         </div>
 
@@ -904,14 +937,14 @@
       <section id="p2p-screen" class="screen">
         <div id="p2pKycLockBanner" class="kyc-lock-banner" style="display:none;">
           <strong>⚠️ Trading Locked — KYC Verification Required</strong>
-          <p style="margin:4px 0 8px;">To keep P2P safe for everyone, trading is disabled until your identity is Approved.</p>
+          <p style="margin:4px 0 8px;">To protect Ethiopian P2P buyers &amp; sellers, trading is disabled until your identity is Approved.</p>
           <button class="btn btn-gold btn-sm" onclick="openSubpage('kyc-screen')">Verify Identity Now →</button>
         </div>
 
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
           <div>
             <h3 style="font-size:17px; font-weight:900;">P2P Marketplace</h3>
-            <span style="font-size:11px; color:var(--muted);">3% Escrow Protection · Reference: <strong id="p2pRefRate">--</strong></span>
+            <span style="font-size:11px; color:var(--muted);">Escrow Protected · Ref: <strong id="p2pRefRate">--</strong></span>
           </div>
           <button class="btn btn-gold btn-sm" id="p2pPostAdBtn" onclick="openPostAdSheet()">+ Post Ad</button>
         </div>
@@ -948,7 +981,6 @@
             <span class="kyc-badge kyc-pending" id="ordCountdownBadge">15:00</span>
           </div>
 
-          <!-- Status Timeline -->
           <div class="timeline" id="ordTimeline">
             <div class="tl-step current" id="tl-created"><div class="tl-dot">1</div><span>Created</span></div>
             <div class="tl-step" id="tl-paid"><div class="tl-dot">2</div><span>Paid</span></div>
@@ -961,7 +993,7 @@
             <div style="display:flex; justify-content:space-between;"><span>Gross USDT:</span><strong id="ordGrossDisplay">0.00 USDT</strong></div>
             <div style="display:flex; justify-content:space-between;"><span>Fee (3%):</span><strong id="ordFeeDisplay">0.00 USDT</strong></div>
             <div style="display:flex; justify-content:space-between; color:var(--green);"><span>You Receive:</span><strong id="ordNetDisplay">0.00 USDT</strong></div>
-            <div style="display:flex; justify-content:space-between;"><span>Payment Method:</span><strong id="ordMethodDisplay">Telebirr</strong></div>
+            <div style="display:flex; justify-content:space-between;"><span>Payment Method:</span><strong id="ordMethodDisplay">--</strong></div>
             <div style="display:flex; justify-content:space-between;"><span>Receiving ID:</span><strong id="ordRecvIdDisplay">--</strong></div>
           </div>
 
@@ -993,7 +1025,7 @@
           <button class="btn btn-gold btn-sm" onclick="openSubpage('kyc-screen')">Verify Identity Now →</button>
         </div>
 
-        <div class="subpage-header"><span>Instant Convert ($ USD ⇄ ETB)</span></div>
+        <div class="subpage-header"><span>Instant Convert (USD ⇄ ETB)</span></div>
         <div class="card">
           <div class="form-group">
             <label class="form-label">From</label>
@@ -1049,7 +1081,7 @@
           </div>
           <h4 style="font-size:16px; color:#e8ecf3; margin-bottom:6px;">Coming Soon</h4>
           <p style="font-size:12px; color:#8b95a7; line-height:1.5; margin-bottom:14px;">
-            Live Perpetual Futures orderbook &amp; execution feed is not yet active on the server. Check back soon for real-time USDⓈ-M trading.
+            Live Perpetual Futures orderbook &amp; execution feed is not yet active on the server.
           </p>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
             <button class="btn btn-green" disabled>Long (Coming Soon)</button>
@@ -1066,13 +1098,13 @@
           <div class="balance-title-row"><span>USD Vault Balance</span></div>
           <div class="balance-amount" id="walletUsdDisplay">$0.00 <span>USD</span></div>
           <div style="display:flex; justify-content:space-between; font-size:12px; margin-top:8px; color:var(--muted);">
-            <span>ETB Equivalent: <strong id="walletEtbDisplay" style="color:var(--text);">0.00 ETB</strong></span>
+            <span>ETB Value: <strong id="walletEtbDisplay" style="color:var(--text);">0.00 ETB</strong></span>
             <span>Locked (Escrow): <strong id="walletLockedDisplay" style="color:var(--gold-text);">$0.00</strong></span>
           </div>
         </div>
 
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
-          <button class="btn btn-gold" onclick="openAddFundsModal(100, 'CBE')">Add Funds</button>
+          <button class="btn btn-gold" onclick="openAddFundsModal('ETB', 'CBE')">Add Funds</button>
           <button class="btn btn-ghost" onclick="openSubpage('withdraw-screen')">Withdraw</button>
         </div>
 
@@ -1084,7 +1116,7 @@
         </div>
       </section>
 
-      <!-- ================= 7. KYC SCREEN (4 STEPS) ================= -->
+      <!-- ================= 7. KYC SCREEN ================= -->
       <section id="kyc-screen" class="screen">
         <div class="subpage-header">
           <button class="back-btn" onclick="openSubpage('home-screen')">←</button>
@@ -1097,7 +1129,6 @@
         </div>
 
         <div class="card" id="kycFormCard">
-          <!-- Step 1: Share Contact -->
           <div class="form-group">
             <label class="form-label">Step 1: Telegram Contact Verification</label>
             <div style="display:flex; gap:8px; align-items:center;">
@@ -1106,16 +1137,14 @@
             </div>
           </div>
 
-          <!-- Step 2: Full Name + National ID -->
           <div class="form-group">
-            <label class="form-label">Step 2: Full Name &amp; National ID (Fayda / Kebele)</label>
+            <label class="form-label">Step 2: Full Name &amp; National ID</label>
             <input type="text" class="form-input" id="kycFullNameInput" placeholder="Full legal name" style="margin-bottom:8px;" />
             <input type="text" class="form-input" id="kycNationalIdInput" placeholder="National ID number" />
           </div>
 
-          <!-- Step 3: ID Photo Upload -->
           <div class="form-group">
-            <label class="form-label">Step 3: National ID Front Photo (Max 5MB)</label>
+            <label class="form-label">Step 3: ID Photo Upload (Max 5MB)</label>
             <label class="upload-box" for="kycIdPhotoInput">
               <span id="kycIdPhotoLabel">Tap to upload ID photo</span>
               <span style="color:var(--gold-text); font-weight:700;">Select</span>
@@ -1124,7 +1153,6 @@
             <img id="kycIdThumb" class="thumb-preview" alt="ID Thumbnail" />
           </div>
 
-          <!-- Step 4: Selfie holding ID -->
           <div class="form-group">
             <label class="form-label">Step 4: Selfie Holding Your ID (Max 5MB)</label>
             <label class="upload-box" for="kycSelfieInput">
@@ -1172,7 +1200,7 @@
         </div>
       </section>
 
-      <!-- ================= 9. PRIZE POOL & INVITE & PROFILE ================= -->
+      <!-- ================= 9. PRIZE POOL, INVITE, PROFILE ================= -->
       <section id="prize-screen" class="screen">
         <div class="subpage-header">
           <button class="back-btn" onclick="openSubpage('home-screen')">←</button>
@@ -1180,9 +1208,9 @@
         </div>
         <div class="card" style="text-align:center;">
           <div style="font-size:24px; font-weight:900; color:var(--gold-text);">$2,080.00 USD Pool</div>
-          <div style="font-size:12px; color:var(--muted); margin-top:4px;" id="prizePoolEtb">≈ 403,520 ETB Weekly Event</div>
-          <div style="margin:14px 0; font-size:13px;">Earn entries automatically by completing verified deposits and invites.</div>
-          <button class="btn btn-gold btn-block" onclick="openSubpage('invite-screen')">Invite Friends to Earn Entries</button>
+          <div style="font-size:12px; color:var(--muted); margin-top:4px;" id="prizePoolEtb">Weekly Partner Event</div>
+          <div style="margin:14px 0; font-size:13px;">Earn entries automatically by completing verified Add Funds and Invites.</div>
+          <button class="btn btn-gold btn-block" onclick="openSubpage('invite-screen')">Invite Friends</button>
         </div>
       </section>
 
@@ -1207,7 +1235,7 @@
           <span>Profile &amp; Settings</span>
         </div>
         <div class="card" style="text-align:center;">
-          <div class="avatar" style="width:58px; height:58px; font-size:20px; margin:0 auto 10px;" id="profileAvatar">ET</div>
+          <div class="avatar" style="width:58px; height:58px; font-size:20px; margin:0 auto 10px;" id="profileAvatar">M</div>
           <h3 id="profileFullname" style="font-size:16px;">--</h3>
           <div id="profileUsername" style="font-size:12px; color:var(--muted); margin-bottom:8px;">@--</div>
           <span class="kyc-badge kyc-none" id="profileKycBadge">None</span>
@@ -1235,7 +1263,7 @@
         <p style="font-size:12.5px; color:var(--muted); margin-bottom:14px;">Claim your starter Dollar Vault bonus.</p>
         <div style="background:var(--gold-bg); border:1px solid var(--gold); border-radius:14px; padding:12px; margin-bottom:14px;">
           <div style="font-size:24px; font-weight:900; color:var(--gold-text);">$0.50 USD</div>
-          <div style="font-size:12px; color:var(--green); font-weight:700;" id="welcomeEtbSub">+97.00 ETB</div>
+          <div style="font-size:12px; color:var(--green); font-weight:700;" id="welcomeEtbSub">Starter Credit</div>
         </div>
         <button class="btn btn-gold btn-block" id="welcomeClaimBtn" onclick="claimWelcomeBonus()">Claim $0.50 Now</button>
       </div>
@@ -1255,7 +1283,7 @@
           <div style="display:flex; justify-content:space-between;"><span>Your Vault Balance:</span><strong id="scUserBal">$0.00</strong></div>
         </div>
         <div class="form-group" id="scTxIdGroup">
-          <label class="form-label">Telebirr / CBE Transaction ID (if paying direct)</label>
+          <label class="form-label">Transaction ID (if paying direct)</label>
           <input type="text" class="form-input" id="scTxIdInput" placeholder="Enter TxID or leave blank to Add Funds" />
         </div>
         <button class="btn btn-purple btn-block" id="scConfirmBtn" onclick="confirmStorePurchase()">Confirm &amp; Pay</button>
@@ -1289,8 +1317,8 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label">Binance / Bybit Pay ID (for receiving USDT)</label>
-          <input type="text" class="form-input" id="p2pSheetRecvId" placeholder="e.g. 392268780" />
+          <label class="form-label">Binance / Bybit ID (for receiving USDT)</label>
+          <input type="text" class="form-input" id="p2pSheetRecvId" placeholder="Enter your Binance or Bybit UID" />
         </div>
 
         <button class="btn btn-gold btn-block" id="p2pSheetConfirmBtn" onclick="submitP2POrder()">Confirm Order</button>
@@ -1312,26 +1340,17 @@
           </select>
         </div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
-          <div class="form-group">
-            <label class="form-label">Amount (USDT)</label>
-            <input type="number" class="form-input" id="paAmount" value="50" oninput="updatePostAdPreview()" />
-          </div>
-          <div class="form-group">
-            <label class="form-label">Price (ETB / USDT)</label>
-            <input type="number" class="form-input" id="paPrice" value="194" step="0.1" oninput="updatePostAdPreview()" />
-          </div>
+          <div class="form-group"><label class="form-label">Amount (USDT)</label><input type="number" class="form-input" id="paAmount" value="50" oninput="updatePostAdPreview()" /></div>
+          <div class="form-group"><label class="form-label">Price (ETB / USDT)</label><input type="number" class="form-input" id="paPrice" value="194" step="0.1" oninput="updatePostAdPreview()" /></div>
         </div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
           <div class="form-group"><label class="form-label">Min Limit (ETB)</label><input type="number" class="form-input" id="paMin" value="500" /></div>
           <div class="form-group"><label class="form-label">Max Limit (ETB)</label><input type="number" class="form-input" id="paMax" value="50000" /></div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Payment Methods</label>
-          <input type="text" class="form-input" id="paMethods" value="Telebirr, CBE" />
-        </div>
+        <div class="form-group"><label class="form-label">Payment Methods</label><input type="text" class="form-input" id="paMethods" value="Telebirr, CBE" /></div>
         <div style="background:var(--card-alt); border:1px solid var(--border); border-radius:12px; padding:10px; font-size:12px; margin-bottom:12px;">
           <div>Fee 3%: <strong id="paPrevFee">1.50 USDT</strong> · You receive: <strong id="paPrevNet" style="color:var(--green);">48.50 USDT</strong></div>
-          <div>ETB Total: <strong id="paPrevEtb" style="color:var(--gold-text);">9,700.00 ETB</strong></div>
+          <div>ETB Total: <strong id="paPrevEtb" style="color:var(--gold-text);">-- ETB</strong></div>
         </div>
         <button class="btn btn-gold btn-block" id="paSubmitBtn" onclick="submitPostAd()">Publish Ad</button>
       </div>
@@ -1349,7 +1368,7 @@
       </div>
     </div>
 
-    <!-- Add Funds 2-Step Modal -->
+    <!-- ═══════════════ ADD FUNDS MODAL (SEPARATED ETB & CRYPTO + ENV ACCOUNTS) ═══════════════ -->
     <div class="modal-overlay center" id="addFundsModal">
       <div class="sheet-box">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
@@ -1361,32 +1380,28 @@
         </div>
 
         <div class="deposit-stepper">
-          <div class="step-badge active" id="afStep1Ind"><span class="step-circle" id="afStep1Circ">1</span><span>Amount &amp; bank</span></div>
+          <div class="step-badge active" id="afStep1Ind"><span class="step-circle" id="afStep1Circ">1</span><span>Amount &amp; method</span></div>
           <div class="step-line" id="afStepLine"></div>
           <div class="step-badge" id="afStep2Ind"><span class="step-circle" id="afStep2Circ">2</span><span>Pay &amp; confirm</span></div>
         </div>
 
         <!-- Step 1 -->
         <div id="afStep1View">
-          <div class="form-group">
-            <label class="form-label">HOW MUCH TO ADD (ETB)</label>
-            <input type="number" class="form-input" id="afAmountInput" value="500" style="font-size:18px; font-weight:800;" />
-            <div class="chips-group">
-              <div class="chip" onclick="setAfAmount(200, this)">200</div>
-              <div class="chip selected" onclick="setAfAmount(500, this)">500</div>
-              <div class="chip" onclick="setAfAmount(1000, this)">1,000</div>
-              <div class="chip" onclick="setAfAmount(3000, this)">3,000</div>
-            </div>
+          <!-- Separated ETB vs Crypto Tabs -->
+          <div class="tab-toggle">
+            <button class="active" id="afTabETB" onclick="switchAfTab('ETB')">ETB (Local Bank)</button>
+            <button id="afTabCRYPTO" onclick="switchAfTab('CRYPTO')">Crypto &amp; Pay IDs</button>
           </div>
 
-          <label class="form-label" style="margin-top:10px;">TAP HOW YOU'LL PAY</label>
-          <div class="pay-methods-grid">
-            <div class="pay-method-card" id="afCardTelebirr" onclick="selectAfMethod('Telebirr')"><span>Telebirr</span></div>
-            <div class="pay-method-card selected" id="afCardCBE" onclick="selectAfMethod('CBE')"><span>CBE</span></div>
-            <div class="pay-method-card" id="afCardBinancePay" onclick="selectAfMethod('BinancePay')"><span>Binance Pay</span></div>
-            <div class="pay-method-card" id="afCardBEP20" onclick="selectAfMethod('USDT_BEP20')"><span>USDT·BEP20</span></div>
-            <div class="pay-method-card" id="afCardTRC20" onclick="selectAfMethod('USDT_TRC20')"><span>USDT·TRC20</span></div>
+          <div class="form-group">
+            <label class="form-label" id="afAmountLabel">HOW MUCH TO ADD (ETB)</label>
+            <input type="number" class="form-input" id="afAmountInput" value="500" style="font-size:18px; font-weight:800;" oninput="updateAfPreview()" />
+            <div style="font-size:11.5px; color:var(--green); font-weight:700; margin-top:4px;" id="afAmountEquiv">--</div>
+            <div class="chips-group" id="afQuickChips"></div>
           </div>
+
+          <label class="form-label" style="margin-top:10px;">SELECT PAYMENT METHOD</label>
+          <div class="pay-methods-grid" id="afMethodsGrid"></div>
 
           <button class="btn btn-purple btn-block" onclick="afGoStep2()">Next: View Account Details →</button>
         </div>
@@ -1395,22 +1410,26 @@
         <div id="afStep2View" style="display:none;">
           <div style="background:var(--purple-bg); border:1px solid var(--purple); border-radius:14px; padding:14px; margin-bottom:12px;">
             <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
-              <strong id="afBankTitle" style="font-size:13px;">CBE</strong>
+              <strong id="afBankTitle" style="font-size:13px;">--</strong>
               <span style="font-size:11px; color:var(--purple); cursor:pointer; font-weight:700;" onclick="afGoStep1()">Change</span>
             </div>
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
               <div><div style="font-size:10px; color:var(--muted);">SEND EXACTLY</div><strong id="afSendAmt" style="font-size:16px;">--</strong></div>
               <button class="btn btn-purple btn-sm" onclick="copyText(document.getElementById('afSendAmt').innerText.replace(/[^0-9.]/g,''))">Copy</button>
             </div>
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-              <div><div style="font-size:10px; color:var(--muted);">TO ACCOUNT</div><strong id="afAccNum" style="font-size:15px;">--</strong><div style="font-size:11px; color:var(--muted);" id="afAccHolder">--</div></div>
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+              <div style="min-width:0; flex:1;">
+                <div style="font-size:10px; color:var(--muted);">TO ACCOUNT / ID / ADDRESS</div>
+                <strong id="afAccNum" style="font-size:13px; word-break:break-all;">--</strong>
+                <div style="font-size:11px; color:var(--muted);" id="afAccHolder">--</div>
+              </div>
               <button class="btn btn-purple btn-sm" onclick="copyText(document.getElementById('afAccNum').innerText)">Copy</button>
             </div>
           </div>
 
           <div class="form-group">
-            <label class="form-label" id="afTxLabel">Transaction ID / Receipt Link</label>
-            <input type="text" class="form-input" id="afTxInput" placeholder="e.g. FT26062K7WMY" />
+            <label class="form-label" id="afTxLabel">Transaction ID / Hash / Order ID</label>
+            <input type="text" class="form-input" id="afTxInput" placeholder="e.g. FT26062K7WMY or 0x..." />
           </div>
 
           <label class="upload-box" for="afReceiptInput">
@@ -1425,7 +1444,6 @@
       </div>
     </div>
 
-    <!-- Toast -->
     <div id="toast" class="toast"></div>
 
     <!-- Bottom Navigation (6 Tabs) -->
@@ -1459,13 +1477,28 @@
 
   <script>
     const API_BASE = 'https://swap-broadcast-server.app.aletcloud.com';
-    const MAX_IMAGE_BYTES = 5 * 1024 * 1024; // 5MB
+    const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
 
-    // ═══════════════ TELEGRAM WEBAPP INIT & UTF-8 DECODER ═══════════════
+    // ═══════════════ TELEGRAM WEBAPP INIT & DYNAMIC SAFE AREA ═══════════════
     const tg = window.Telegram?.WebApp;
     if (tg) {
       tg.ready();
       tg.expand();
+    }
+
+    function applyTelegramSafeArea() {
+      const sc = document.getElementById('mainScreenContent');
+      if (!sc) return;
+      const sysTop = tg?.safeAreaInset?.top || 0;
+      const contentTop = tg?.contentSafeAreaInset?.top || 0;
+      const total = sysTop + contentTop;
+      // Ensure clearance below Telegram's X Close / menu pills on all Android/iOS views
+      sc.style.paddingTop = `${Math.max(92, total + 12)}px`;
+    }
+    applyTelegramSafeArea();
+    if (tg && typeof tg.onEvent === 'function') {
+      tg.onEvent('safeAreaChanged', applyTelegramSafeArea);
+      tg.onEvent('contentSafeAreaChanged', applyTelegramSafeArea);
     }
 
     function cleanUtf8Text(str) {
@@ -1493,14 +1526,14 @@
 
     document.getElementById('userName').innerText = fullName;
     document.getElementById('userHandle').innerText = tgUser.username ? `@${tgUser.username}` : `ID: ${tgUser.id}`;
-    document.getElementById('userAvatar').innerText = (tgUser.first_name.charAt(0) + (tgUser.last_name ? tgUser.last_name.charAt(0) : '')).toUpperCase() || 'ET';
+    document.getElementById('userAvatar').innerText = (tgUser.first_name.charAt(0) + (tgUser.last_name ? tgUser.last_name.charAt(0) : '')).toUpperCase() || 'M';
     document.getElementById('profileFullname').innerText = fullName;
     document.getElementById('profileUsername').innerText = tgUser.username ? `@${tgUser.username}` : `ID: ${tgUser.id}`;
     document.getElementById('profileAvatar').innerText = document.getElementById('userAvatar').innerText;
     document.getElementById('kycFullNameInput').value = fullName;
     document.getElementById('refLinkInput').value = `https://t.me/Binanceethopiapartnerbot/binance?startapp=${tgUser.id}`;
 
-    // ═══════════════ THEME MANAGER (DARK / LIGHT) ═══════════════
+    // ═══════════════ THEME MANAGER ═══════════════
     const SUN_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';
     const MOON_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
     const EYE_OPEN_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
@@ -1517,22 +1550,29 @@
     function toggleTheme() { applyTheme(currentTheme === 'dark' ? 'light' : 'dark'); }
     applyTheme(currentTheme);
 
-    // ═══════════════ APP STATE & UNIFIED RATE ═══════════════
+    // ═══════════════ APP STATE & SERVER CONFIG ═══════════════
     let FX_RATE = parseFloat(localStorage.getItem('binance_et_fx_rate')) || 194.00;
-    let ACCOUNTS_CFG = {
-      cbe: localStorage.getItem('cfg_cbe') || '1000562339427',
-      telebirr: localStorage.getItem('cfg_telebirr') || '0996910607',
-      binancePay: '392268780',
-      bep20: '0x71a29f4e2c91834cb2e098a542b8109d',
-      trc20: 'TJY9x5e7vN9wKqF2qXzG8yP7A4b1c2D3e'
+    // Loaded strictly from server environment variables (/api/config)
+    let SERVER_ACCOUNTS = {
+      cbe: { number: '', holder: 'CBE' },
+      telebirr: { number: '', holder: 'Telebirr' },
+      binance_pay: '',
+      bybit_id: '',
+      usdt_bep20: '',
+      usdt_trc20: '',
+      usdt_ton: '',
+      btc: '',
+      eth: '',
+      sol: '',
+      bnb: ''
     };
 
     let baseCurrency = 'USD';
-    let totalUSD = null; // null = loading skeleton
+    let totalUSD = null;
     let lockedUSD = 0.00;
-    let balanceHidden = true; // Hidden by default
-    let cardHidden = true;    // Hidden by default
-    let isAmharic = false;
+    let balanceHidden = true;
+    let cardHidden = true;
+    let isAmharic = false; // Default English
 
     let kycStatus = localStorage.getItem(`kyc_status_${tgUser.id}`) || 'None';
     let userCard = JSON.parse(localStorage.getItem(`user_card_${tgUser.id}`) || 'null');
@@ -1545,6 +1585,7 @@
     let orderTimerInterval = null;
     let serverTimeOffsetMs = 0;
 
+    let afTab = 'ETB';
     let selectedAfMethod = 'CBE';
     let pendingStoreItem = null;
 
@@ -1603,18 +1644,15 @@
       const expEl = document.getElementById('cardExpCvv');
       const holderEl = document.getElementById('cardHolderName');
       const pillEl = document.getElementById('cardStatePill');
-      const netEl = document.getElementById('cardNetworkBadge');
 
       holderEl.innerText = fullName.toUpperCase();
       if (!userCard) {
         numEl.innerText = '•••• •••• •••• ••••';
         expEl.innerText = '••/•• • •••';
         pillEl.innerText = 'NOT ACTIVATED';
-        netEl.innerText = 'VISA / MC';
         return;
       }
 
-      netEl.innerText = userCard.type || 'VISA';
       pillEl.innerText = 'ACTIVE';
       if (cardHidden) {
         const last4 = String(userCard.number).slice(-4);
@@ -1643,15 +1681,12 @@
       document.getElementById('hdrVerifiedBadge').style.display = normalized === 'approved' ? 'inline-flex' : 'none';
 
       const isApproved = normalized === 'approved';
-      // Lock trading screens until Approved
       document.getElementById('p2pKycLockBanner').style.display = isApproved ? 'none' : 'block';
       document.getElementById('convertKycLockBanner').style.display = isApproved ? 'none' : 'block';
       document.getElementById('futuresKycLockBanner').style.display = isApproved ? 'none' : 'block';
-
       document.getElementById('p2pPostAdBtn').disabled = !isApproved;
       document.getElementById('convReviewBtn').disabled = !isApproved;
 
-      // KYC page banner
       const kycCard = document.getElementById('kycStatusBannerCard');
       const kycForm = document.getElementById('kycFormCard');
       if (normalized === 'pending') {
@@ -1683,7 +1718,7 @@
       renderStoreProducts();
       renderTransactions();
 
-      // 1. Fetch unified rate & config
+      // 1. Fetch config & environment accounts from server
       try {
         const cfgRes = await fetch(`${API_BASE}/api/config`);
         const serverDate = cfgRes.headers.get('date');
@@ -1694,14 +1729,22 @@
             FX_RATE = parseFloat(cfg.fx_rate);
             localStorage.setItem('binance_et_fx_rate', FX_RATE.toString());
           }
-          if (cfg.cbe_account) { ACCOUNTS_CFG.cbe = cfg.cbe_account; localStorage.setItem('cfg_cbe', cfg.cbe_account); }
-          if (cfg.telebirr_phone) { ACCOUNTS_CFG.telebirr = cfg.telebirr_phone; localStorage.setItem('cfg_telebirr', cfg.telebirr_phone); }
+          if (cfg.accounts) {
+            SERVER_ACCOUNTS = cfg.accounts;
+          } else {
+            // Backward-compatible mapping if older server format
+            SERVER_ACCOUNTS.cbe = { number: cfg.cbe_account || '', holder: 'CBE Account' };
+            SERVER_ACCOUNTS.telebirr = { number: cfg.telebirr_phone || '', holder: 'Telebirr' };
+            SERVER_ACCOUNTS.binance_pay = cfg.binance_pay_id || '';
+            SERVER_ACCOUNTS.usdt_bep20 = cfg.bep20_address || '';
+            SERVER_ACCOUNTS.usdt_trc20 = cfg.trc20_address || '';
+          }
         }
       } catch (e) {
-        console.warn('Config fetch fallback to saved rate:', FX_RATE);
+        console.warn('Config fetch fallback to cached FX rate:', FX_RATE);
       }
 
-      // 2. Auth & Sync User
+      // 2. Authenticate User
       try {
         const res = await fetch(`${API_BASE}/api/auth`, {
           method: 'POST',
@@ -1718,6 +1761,7 @@
         const d = await res.json();
         if (d.user) {
           totalUSD = parseFloat(d.user.balance_usd || 0);
+          lockedUSD = parseFloat(d.user.locked_usd || 0);
           if (d.user.kyc_status) {
             kycStatus = d.user.kyc_status;
             localStorage.setItem(`kyc_status_${tgUser.id}`, kycStatus);
@@ -1732,7 +1776,7 @@
         }
       } catch (err) {
         totalUSD = 0.00;
-        showToast('Offline or server waking up. Some live data unavailable.', 'error');
+        showToast('Connecting to server... Please wait.', 'error');
       }
 
       renderBalance();
@@ -1742,7 +1786,7 @@
       loadLiveCryptoTickers();
     }
 
-    // ═══════════════ LIVE PUBLIC CRYPTO TICKERS (REAL DATA ONLY) ═══════════════
+    // ═══════════════ LIVE PUBLIC CRYPTO TICKERS ═══════════════
     async function loadLiveCryptoTickers() {
       const container = document.getElementById('homeLiveMarkets');
       const statusEl = document.getElementById('liveTickerStatus');
@@ -1797,7 +1841,7 @@
             </div>
             <h4 style="font-size:14.5px; font-weight:800; margin-bottom:4px;">${p.name}</h4>
             <p style="font-size:12px; color:var(--muted); margin-bottom:12px; line-height:1.45;">${p.desc}</p>
-            <button class="btn btn-purple btn-block btn-sm" onclick="openStoreConfirmSheet('${p.id}')">Buy Now</button>
+            <button class="btn btn-visa btn-block btn-sm" onclick="openStoreConfirmSheet('${p.id}')">Buy Now</button>
           </div>
         `;
       }).join('');
@@ -1824,7 +1868,7 @@
 
       if ((pendingStoreItem.id === 'VISA' || pendingStoreItem.id === 'MASTERCARD') && !txId) {
         closeModal('storeConfirmSheet');
-        openAddFundsModal(Math.round(pendingStoreItem.priceUsd * FX_RATE), 'CBE');
+        openAddFundsModal('ETB', 'CBE', Math.round(pendingStoreItem.priceUsd * FX_RATE));
         return;
       }
 
@@ -1907,7 +1951,6 @@
       const hideOutliers = document.getElementById('hideOutliersChk').checked;
       const isKycApproved = kycStatus.toLowerCase() === 'approved';
 
-      // Strict tab filtering: Buy tab -> only BUY ads, Sell tab -> only SELL ads
       let filtered = allP2PAds.filter(ad => String(ad.trade_type || '').toUpperCase() === activeP2PTab);
 
       if (hideOutliers) {
@@ -1930,7 +1973,6 @@
         const deviation = Math.abs(price - FX_RATE) / FX_RATE;
         const isOutlier = deviation > 0.10;
 
-        // Verified badge ONLY for KYC Approved creators
         const creatorApproved = ad.kyc_status === 'Approved' || ad.verified === true || String(ad.creator_id).startsWith('SYSTEM_VERIFIED') || (String(ad.creator_id) === tgUser.id && isKycApproved);
         const compRate = ad.completion_rate ? `${ad.completion_rate}%` : '—';
         const methodsHtml = String(ad.payment_methods || 'Telebirr, CBE').split(',').map(m => `<span class="pay-pill">${m.trim()}</span>`).join('');
@@ -1960,10 +2002,7 @@
     }
 
     function openP2POrderSheet(adId) {
-      if (kycStatus.toLowerCase() !== 'approved') {
-        showToast('KYC verification required to trade.', 'error');
-        return;
-      }
+      if (kycStatus.toLowerCase() !== 'approved') return showToast('KYC verification required to trade.', 'error');
       const ad = allP2PAds.find(x => x.id === adId);
       if (!ad) return;
       selectedP2PAd = ad;
@@ -2024,7 +2063,6 @@
         if (!res.ok || !d.success) throw new Error(d.error || 'Could not create order');
 
         const trade = d.trade;
-        // Always display backend numbers if they differ
         const backendUsdt = parseFloat(trade.amount_usd || preview.gross);
         const backendEtb = parseFloat(trade.amount_etb || preview.etbTotal);
         const backendCalc = window.calcOrder(backendUsdt, parseFloat(trade.price_rate || selectedP2PAd.price_etb), 3);
@@ -2155,11 +2193,8 @@
       showToast(`Dispute flagged for ${activeOrder.trade_code}. Support notified.`, 'error');
     }
 
-    // Post Ad Sheet
     function openPostAdSheet() {
-      if (kycStatus.toLowerCase() !== 'approved') {
-        return showToast('KYC verification required to post ads.', 'error');
-      }
+      if (kycStatus.toLowerCase() !== 'approved') return showToast('KYC verification required to post ads.', 'error');
       document.getElementById('paPrice').value = FX_RATE.toFixed(2);
       updatePostAdPreview();
       openModal('postAdSheet');
@@ -2215,7 +2250,7 @@
             document.getElementById('kycPhoneInput').value = phone;
             showToast('Contact shared successfully', 'success');
           } else {
-            showToast('Contact sharing was cancelled', 'error');
+            showToast('Contact sharing cancelled', 'error');
           }
         });
       } else {
@@ -2229,7 +2264,7 @@
       if (!file) return;
       if (file.size > MAX_IMAGE_BYTES) {
         input.value = '';
-        showToast('Image exceeds 5MB limit. Please choose a smaller photo.', 'error');
+        showToast('Image exceeds 5MB limit. Choose a smaller photo.', 'error');
         return;
       }
       document.getElementById(labelId).innerText = `${file.name} (${(file.size / 1024).toFixed(0)} KB)`;
@@ -2242,7 +2277,7 @@
       reader.readAsDataURL(file);
     }
 
-    function submitKycForm() {
+    async function submitKycForm() {
       const phone = document.getElementById('kycPhoneInput').value.trim();
       const name = document.getElementById('kycFullNameInput').value.trim();
       const natId = document.getElementById('kycNationalIdInput').value.trim();
@@ -2254,8 +2289,29 @@
       if (!idFile) return showToast('Step 3: Upload National ID photo', 'error');
       if (!selfieFile) return showToast('Step 4: Upload selfie holding ID', 'error');
 
-      kycStatus = 'Pending';
-      localStorage.setItem(`kyc_status_${tgUser.id}`, 'Pending');
+      const btn = document.getElementById('kycSubmitBtn');
+      btn.disabled = true;
+      btn.innerText = 'Submitting...';
+      try {
+        const res = await fetch(`${API_BASE}/api/kyc/submit`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ telegram_id: tgUser.id, phone_number: phone, full_name: name, national_id: natId })
+        });
+        if (res.ok) {
+          const d = await res.json();
+          kycStatus = d.kyc_status || 'Pending';
+        } else {
+          kycStatus = 'Pending';
+        }
+      } catch {
+        kycStatus = 'Pending';
+      } finally {
+        btn.disabled = false;
+        btn.innerText = 'Submit KYC Verification';
+      }
+
+      localStorage.setItem(`kyc_status_${tgUser.id}`, kycStatus);
       renderKycUI();
       showToast('Submitted! Pending (waiting for admin review in Telegram)', 'success');
     }
@@ -2290,9 +2346,7 @@
     }
 
     function openConvertConfirmSheet() {
-      if (kycStatus.toLowerCase() !== 'approved') {
-        return showToast('KYC verification required to convert.', 'error');
-      }
+      if (kycStatus.toLowerCase() !== 'approved') return showToast('KYC verification required to convert.', 'error');
       const from = document.getElementById('convFromCurr').value;
       const amt = parseFloat(document.getElementById('convAmountInput').value) || 0;
       if (amt <= 0) return showToast('Enter a valid amount', 'error');
@@ -2311,25 +2365,110 @@
       showToast('Conversion request recorded', 'success');
     }
 
-    // ═══════════════ ADD FUNDS (ETHIO VIRAL 2-STEP) ═══════════════
-    function openAddFundsModal(amount, method) {
-      if (amount) document.getElementById('afAmountInput').value = amount;
+    // ═══════════════ ADD FUNDS (SEPARATED ETB & CRYPTO, ENV-ONLY ACCOUNTS) ═══════════════
+    function openAddFundsModal(tab = 'ETB', method = 'CBE', presetAmt = null) {
+      afTab = tab === 'CRYPTO' ? 'CRYPTO' : 'ETB';
+      switchAfTab(afTab);
+      if (presetAmt) document.getElementById('afAmountInput').value = presetAmt;
       if (method) selectAfMethod(method);
       afGoStep1();
       openModal('addFundsModal');
     }
 
+    function switchAfTab(tab) {
+      afTab = tab;
+      document.getElementById('afTabETB').classList.toggle('active', tab === 'ETB');
+      document.getElementById('afTabCRYPTO').classList.toggle('active', tab === 'CRYPTO');
+
+      const chipsEl = document.getElementById('afQuickChips');
+      const gridEl = document.getElementById('afMethodsGrid');
+
+      if (tab === 'ETB') {
+        document.getElementById('afAmountLabel').innerText = 'HOW MUCH TO ADD (ETB)';
+        if (!document.getElementById('afAmountInput').value || parseFloat(document.getElementById('afAmountInput').value) < 50) {
+          document.getElementById('afAmountInput').value = 500;
+        }
+        chipsEl.innerHTML = [200, 500, 1000, 3000].map(v => `<div class="chip" onclick="setAfAmount(${v}, this)">${v.toLocaleString()}</div>`).join('');
+
+        const etbMethods = [
+          { key: 'Telebirr', label: 'Telebirr', sub: 'Mobile Money', val: SERVER_ACCOUNTS.telebirr?.number },
+          { key: 'CBE', label: 'CBE', sub: 'Bank Transfer', val: SERVER_ACCOUNTS.cbe?.number }
+        ];
+        gridEl.innerHTML = etbMethods.map(m => `
+          <div class="pay-method-card ${selectedAfMethod === m.key ? 'selected' : ''}" onclick="selectAfMethod('${m.key}')">
+            <span>${m.label}</span>
+            <small>${m.val ? m.sub : 'Not Set'}</small>
+          </div>
+        `).join('');
+        if (!['Telebirr', 'CBE'].includes(selectedAfMethod)) selectAfMethod('CBE');
+      } else {
+        document.getElementById('afAmountLabel').innerText = 'HOW MUCH TO ADD (USD $)';
+        if (parseFloat(document.getElementById('afAmountInput').value) >= 100) {
+          document.getElementById('afAmountInput').value = 10;
+        }
+        chipsEl.innerHTML = [5, 10, 25, 50].map(v => `<div class="chip" onclick="setAfAmount(${v}, this)">$${v}</div>`).join('');
+
+        const cryptoMethods = [
+          { key: 'BinancePay', label: 'Binance ID', sub: 'Pay ID', val: SERVER_ACCOUNTS.binance_pay },
+          { key: 'BybitPay', label: 'Bybit ID', sub: 'UID / Pay', val: SERVER_ACCOUNTS.bybit_id },
+          { key: 'USDT_BEP20', label: 'USDT BEP20', sub: 'BSC', val: SERVER_ACCOUNTS.usdt_bep20 },
+          { key: 'USDT_TRC20', label: 'USDT TRC20', sub: 'Tron', val: SERVER_ACCOUNTS.usdt_trc20 },
+          { key: 'USDT_TON', label: 'USDT TON', sub: 'TON', val: SERVER_ACCOUNTS.usdt_ton },
+          { key: 'BTC', label: 'Bitcoin', sub: 'BTC', val: SERVER_ACCOUNTS.btc },
+          { key: 'ETH', label: 'Ethereum', sub: 'ERC20', val: SERVER_ACCOUNTS.eth },
+          { key: 'SOL', label: 'Solana', sub: 'SOL', val: SERVER_ACCOUNTS.sol },
+          { key: 'BNB', label: 'BNB', sub: 'BEP20', val: SERVER_ACCOUNTS.bnb }
+        ];
+        gridEl.innerHTML = cryptoMethods.map(m => `
+          <div class="pay-method-card ${selectedAfMethod === m.key ? 'selected' : ''}" onclick="selectAfMethod('${m.key}')">
+            <span>${m.label}</span>
+            <small>${m.val ? m.sub : 'Not Set'}</small>
+          </div>
+        `).join('');
+        if (['Telebirr', 'CBE'].includes(selectedAfMethod)) selectAfMethod('BinancePay');
+      }
+      updateAfPreview();
+    }
+
+    function updateAfPreview() {
+      const val = parseFloat(document.getElementById('afAmountInput').value) || 0;
+      const el = document.getElementById('afAmountEquiv');
+      if (afTab === 'ETB') {
+        el.innerText = `Vault Credit: ≈ $${(val / FX_RATE).toFixed(2)} USD`;
+      } else {
+        el.innerText = `Equivalent: ≈ ${(val * FX_RATE).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ETB`;
+      }
+    }
+
     function setAfAmount(val, el) {
       document.getElementById('afAmountInput').value = val;
-      document.querySelectorAll('#afStep1View .chip').forEach(c => c.classList.remove('selected'));
+      document.querySelectorAll('#afQuickChips .chip').forEach(c => c.classList.remove('selected'));
       el.classList.add('selected');
+      updateAfPreview();
     }
 
     function selectAfMethod(m) {
       selectedAfMethod = m;
-      document.querySelectorAll('.pay-method-card').forEach(c => c.classList.remove('selected'));
-      const map = { Telebirr: 'afCardTelebirr', CBE: 'afCardCBE', BinancePay: 'afCardBinancePay', USDT_BEP20: 'afCardBEP20', USDT_TRC20: 'afCardTRC20' };
-      if (map[m]) document.getElementById(map[m]).classList.add('selected');
+      document.querySelectorAll('#afMethodsGrid .pay-method-card').forEach(c => {
+        c.classList.toggle('selected', c.getAttribute('onclick')?.includes(`'${m}'`));
+      });
+    }
+
+    function getAccountFromEnv(methodKey) {
+      const map = {
+        CBE: { title: 'Commercial Bank of Ethiopia (CBE)', acc: SERVER_ACCOUNTS.cbe?.number, holder: SERVER_ACCOUNTS.cbe?.holder || 'CBE Transfer', crypto: false },
+        Telebirr: { title: 'Telebirr Mobile Money', acc: SERVER_ACCOUNTS.telebirr?.number, holder: SERVER_ACCOUNTS.telebirr?.holder || 'Telebirr Transfer', crypto: false },
+        BinancePay: { title: 'Binance Pay ID', acc: SERVER_ACCOUNTS.binance_pay, holder: 'Binance Pay (Zero Fee)', crypto: true },
+        BybitPay: { title: 'Bybit Pay / UID', acc: SERVER_ACCOUNTS.bybit_id, holder: 'Bybit Internal Transfer', crypto: true },
+        USDT_BEP20: { title: 'USDT (BNB Smart Chain BEP-20)', acc: SERVER_ACCOUNTS.usdt_bep20, holder: 'BEP-20 Network', crypto: true },
+        USDT_TRC20: { title: 'USDT (Tron TRC-20)', acc: SERVER_ACCOUNTS.usdt_trc20, holder: 'TRC-20 Network', crypto: true },
+        USDT_TON: { title: 'USDT (TON Network)', acc: SERVER_ACCOUNTS.usdt_ton, holder: 'TON Network', crypto: true },
+        BTC: { title: 'Bitcoin (BTC)', acc: SERVER_ACCOUNTS.btc, holder: 'Bitcoin Network', crypto: true },
+        ETH: { title: 'Ethereum (ETH)', acc: SERVER_ACCOUNTS.eth, holder: 'ERC-20 Network', crypto: true },
+        SOL: { title: 'Solana (SOL)', acc: SERVER_ACCOUNTS.sol, holder: 'Solana Network', crypto: true },
+        BNB: { title: 'BNB (BEP-20)', acc: SERVER_ACCOUNTS.bnb, holder: 'BNB Smart Chain', crypto: true }
+      };
+      return map[methodKey];
     }
 
     function afGoStep1() {
@@ -2346,18 +2485,15 @@
       const amt = parseFloat(document.getElementById('afAmountInput').value) || 0;
       if (amt <= 0) return showToast('Enter a valid amount', 'error');
 
-      const details = {
-        CBE: { title: 'Commercial Bank of Ethiopia (CBE)', acc: ACCOUNTS_CFG.cbe, holder: 'Binance Ethiopia Vault', crypto: false },
-        Telebirr: { title: 'Telebirr Mobile Money', acc: ACCOUNTS_CFG.telebirr, holder: 'Binance Ethiopia Vault', crypto: false },
-        BinancePay: { title: 'Binance Pay (USDT)', acc: ACCOUNTS_CFG.binancePay, holder: 'Binance Ethiopia Partner', crypto: true },
-        USDT_BEP20: { title: 'USDT (BEP-20)', acc: ACCOUNTS_CFG.bep20, holder: 'BSC Network', crypto: true },
-        USDT_TRC20: { title: 'USDT (TRC-20)', acc: ACCOUNTS_CFG.trc20, holder: 'Tron Network', crypto: true }
-      }[selectedAfMethod];
+      const details = getAccountFromEnv(selectedAfMethod);
+      if (!details || !details.acc) {
+        return showToast(`${selectedAfMethod} is not configured in server environment variables yet.`, 'error');
+      }
 
       document.getElementById('afBankTitle').innerText = details.title;
       document.getElementById('afAccNum').innerText = details.acc;
       document.getElementById('afAccHolder').innerText = details.holder;
-      document.getElementById('afSendAmt').innerText = details.crypto ? `USDT ${(amt / FX_RATE).toFixed(2)}` : `ETB ${amt.toFixed(2)}`;
+      document.getElementById('afSendAmt').innerText = afTab === 'CRYPTO' ? `USD ${amt.toFixed(2)}` : `ETB ${amt.toFixed(2)}`;
 
       document.getElementById('afStep1View').style.display = 'none';
       document.getElementById('afStep2View').style.display = 'block';
@@ -2371,8 +2507,9 @@
     async function submitAddFunds() {
       const amt = parseFloat(document.getElementById('afAmountInput').value) || 0;
       const tx = document.getElementById('afTxInput').value.trim();
-      if (!tx) return showToast('Enter Transaction ID', 'error');
+      if (!tx) return showToast('Enter Transaction ID / Hash / Order ID', 'error');
 
+      const currency = afTab === 'CRYPTO' ? 'USD' : 'ETB';
       const btn = document.getElementById('afSubmitBtn');
       btn.disabled = true;
       btn.innerText = 'Verifying...';
@@ -2382,7 +2519,7 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             telegram_id: tgUser.id,
-            currency: 'ETB',
+            currency: currency,
             amount: amt,
             payment_method: selectedAfMethod,
             transaction_ref: tx
@@ -2391,11 +2528,12 @@
         const d = await res.json();
         if (!res.ok || !d.success) throw new Error(d.error || 'Verification failed');
 
+        const usdAdd = currency === 'USD' ? amt : (amt / FX_RATE);
         if (d.verified) {
-          totalUSD = (totalUSD || 0) + (amt / FX_RATE);
+          totalUSD = (totalUSD || 0) + usdAdd;
           renderBalance();
         }
-        recordTx('ADD_FUNDS', amt / FX_RATE, `${selectedAfMethod} (${tx})`, d.verified ? 'APPROVED' : 'PENDING');
+        recordTx('ADD_FUNDS', usdAdd, `${selectedAfMethod} (${tx})`, d.verified ? 'APPROVED' : 'PENDING');
         closeModal('addFundsModal');
         showToast(d.message, 'success');
       } catch (err) {
@@ -2406,7 +2544,7 @@
       }
     }
 
-    // ═══════════════ WITHDRAW, WELCOME, STAGES & TRANSACTIONS ═══════════════
+    // ═══════════════ WITHDRAW, WELCOME, STAGES & LEDGER ═══════════════
     function updateWithdrawPreview() {
       const usd = parseFloat(document.getElementById('withdrawInput').value) || 0;
       document.getElementById('withdrawEtbPreview').innerText = `${(usd * FX_RATE).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ETB`;
@@ -2520,7 +2658,7 @@
       }).join('');
     }
 
-    // ═══════════════ UTILITIES ═══════════════
+    // ═══════════════ UTILITIES & ENGLISH DEFAULT I18N ═══════════════
     function toggleCurrency() {
       baseCurrency = baseCurrency === 'USD' ? 'ETB' : 'USD';
       document.getElementById('currBadge').innerText = baseCurrency === 'USD' ? '$ USD' : 'ETB';
@@ -2529,24 +2667,47 @@
 
     function toggleLanguage() {
       isAmharic = !isAmharic;
+      document.getElementById('langSwitchBtn').innerText = isAmharic ? 'አማ' : 'EN';
       const dict = isAmharic ? {
+        kycStatusLbl: 'የKYC ሁኔታ:',
+        verifyIdentityBtn: 'ማንነት አረጋግጥ',
         vaultTitle: 'የዶላር አሴት ማከማቻ',
+        cardSub: 'አለምአቀፍ የክፍያ ካርድ',
+        getCardBtn: 'ካርድ ይግዙ',
+        topUpBtn: 'ገንዘብ አስገባ',
         actAddFunds: 'ገንዘብ አስገባ',
         actWithdraw: 'ገንዘብ አውጣ',
-        actStore: 'ዲጂታል ሱቅ',
+        actStore: 'ሱቅ',
         actP2p: 'P2P ገበያ',
         actPrize: 'ሽልማት',
         actInvite: 'ጋብዝ (40%)',
-        stagesTitle: 'የደረጃ ሽልማቶች'
+        stagesTitle: 'የደረጃ ሽልማቶች',
+        stagesSub: 'በሰርቨር የተረጋገጡ ሽልማቶች',
+        s1Title: 'የማንነት KYC ማረጋገጫ',
+        s2Title: 'የመጀመሪያ ገቢ (Add Funds)',
+        s3Title: '5 ጓደኞችን መጋበዝ',
+        s4Title: 'VIP ሻምፒዮን ደረጃ',
+        liveMarketsTitle: 'የክሪፕቶ ገበያ ዋጋ'
       } : {
-        vaultTitle: 'Dollar Vault Asset (የዶላር አሴት)',
+        kycStatusLbl: 'KYC Status:',
+        verifyIdentityBtn: 'Verify Identity',
+        vaultTitle: 'Dollar Vault Asset',
+        cardSub: 'Global Online Payment Card',
+        getCardBtn: 'Get Virtual Card',
+        topUpBtn: 'Add Funds',
         actAddFunds: 'Add Funds',
         actWithdraw: 'Withdraw',
-        actStore: 'Store / ሱቅ',
+        actStore: 'Store',
         actP2p: 'P2P Market',
         actPrize: 'Prize Pool',
         actInvite: 'Invite 40%',
-        stagesTitle: 'Task Prize Stages (የደረጃ ሽልማቶች)'
+        stagesTitle: 'Task Prize Stages',
+        stagesSub: 'Verified directly by backend',
+        s1Title: 'Identity KYC Verification',
+        s2Title: 'First Add Funds',
+        s3Title: 'Invite 5 Active Friends',
+        s4Title: 'VIP Champion Milestone',
+        liveMarketsTitle: 'Live Crypto Markets'
       };
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const k = el.getAttribute('data-i18n');
@@ -2583,7 +2744,7 @@
 
     function shareOnTelegram() {
       const url = encodeURIComponent(document.getElementById('refLinkInput').value);
-      const text = encodeURIComponent('Join Binance Ethiopia Dollar Vault! Hold USD assets and order Visa/MasterCards.');
+      const text = encodeURIComponent('Join Binance Ethiopia Dollar Vault! Hold USD assets and order Virtual Cards.');
       window.open(`https://t.me/share/url?url=${url}&text=${text}`, '_blank');
     }
 
@@ -2598,5 +2759,4 @@
   </script>
 </body>
 </html>
-
 
